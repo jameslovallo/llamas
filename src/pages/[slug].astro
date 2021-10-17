@@ -1,0 +1,14 @@
+---
+export async function getStaticPaths() {
+  const data = await fetch('https://api.storyblok.com/v1/cdn/stories/?token=bCjf0Q7TMxko2DlaM28GcQtt')
+    .then(response => response.json());
+  return data.stories.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post }
+    };
+  });
+}
+const {post} = Astro.props;
+---
+<body><h1>{post.name}</h1></body>
