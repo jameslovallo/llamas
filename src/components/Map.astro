@@ -1,0 +1,37 @@
+---
+const {props} = Astro.props
+
+const staticMap = () => {
+	const p = props;
+	const regex = new RegExp("[0-9]+(/|x)[0-9]+");
+	const width = p.base_width;
+
+	let height = Math.round((p.base_width * 9) / 16);
+
+	if (regex.test(p.aspect_ratio)) {
+		const arr = p.aspect_ratio.split("/");
+		height = Math.round((arr[1] / arr[0]) * width);
+	}
+
+	const base = "https://maps.googleapis.com/maps/api/staticmap?";
+	const locations = p.location.split("\n").join("|");
+	const markers =
+		!locations.includes("|") && p.hide_pins ? "center" : "markers";
+	const query = markers + "=" + locations;
+	const satellite = p.satellite ? "&maptype=satellite" : "";
+	const size = `&size=${width}x${height}&scale=2`;
+	const zoom = "&zoom=" + p.zoom_level;
+	const key = "&key=AIzaSyCxqAHXuQxKJh84FPydDkFcXyA2x7wIZVA";
+	return (
+		<a href={"https://google.com/maps/search/" + locations}>
+			<img 
+				src={base + query + satellite + size + zoom + key}
+				alt={"Map showing " + locations}
+				height={height}
+				width={width}
+			/>
+		</a>
+	)
+}
+---
+{staticMap()}

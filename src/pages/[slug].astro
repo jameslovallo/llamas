@@ -1,14 +1,25 @@
 ---
+import Children from '../components/Children.vue'
 export async function getStaticPaths() {
-  const data = await fetch('https://api.storyblok.com/v1/cdn/stories/?token=bCjf0Q7TMxko2DlaM28GcQtt')
+  const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
+  const cacheBuster = new Date().getMilliseconds()
+  const data = await fetch(`https://api.storyblok.com/v1/cdn/stories/?token=${key}&cv=${cacheBuster}`)
     .then(response => response.json());
-  return data.stories.map((post) => {
+
+  return data.stories.map((page) => {
     return {
-      params: { slug: post.slug },
-      props: { post }
+      params: { slug: page.slug },
+      props: { page }
     };
   });
 }
-const {post} = Astro.props;
+
+const {page} = Astro.props;
 ---
-<body><h1>{post.name}</h1></body>
+<body>
+  <h1>{page.name}</h1>
+  <Children source={page.content.body}/>
+  <style lang="scss" global>
+    @import "../css/base.scss";
+  </style>
+</body>

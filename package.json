@@ -12,5 +12,8 @@
 		"@material/button": "^13.0.0",
 		"@material/card": "^13.0.0",
 		"astro": "^0.20.12"
+	},
+	"dependencies": {
+		"@astrojs/renderer-vue": "^0.1.9"
 	}
 }
