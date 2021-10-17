@@ -1,0 +1,56 @@
+---
+const { props } = Astro.props;
+const {outlined, style} = props || false
+---
+<div 
+	class={`mdc-card ${outlined ? 'mdc-card--outlined' : ''}`}
+	style={style}
+>
+	<slot name="media"/>
+	<div class="mdc-card-wrapper__text-section">
+		<h3>Title</h3>
+		<p>Subtitle</p>
+	</div>
+	<div class="mdc-card__actions">
+		<slot name="actions"/>
+	</div>
+</div>
+
+<style lang="scss" global>
+	@use "@material/card";
+	@include card.core-styles;
+
+	.mdc-card-wrapper__text-section {
+		padding-left: 16px;
+		padding-right: 16px;
+		
+		h2, h3, h4, h5, h6 {
+			margin: 0;
+			font-size: 1.25rem;
+			line-height: 2rem;
+			font-weight: 500;
+			letter-spacing: .0125em;
+			font-weight: bold;
+		}
+		p {
+			margin: 0;
+			font-size: .875rem;
+			line-height: 1.25rem;
+			font-weight: 400;
+			letter-spacing: .0178571429em;
+			opacity: .6;
+		}
+		
+		&:first-of-type, &:first-child {
+			padding-top: 16px;
+		}
+
+		+ .mdc-card-wrapper__text-section {
+			padding-top: 18px;
+		}
+	}
+
+	.mdc-card__actions:empty {
+		min-height: 16px;
+	}
+</style>
