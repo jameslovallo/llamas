@@ -1,4 +1,5 @@
-@use '@material/button/styles';
+@use '@material/button/mdc-button';
+@use '@material/icon-button/mdc-icon-button';
 
 .mdc-button__icon {
 	svg {

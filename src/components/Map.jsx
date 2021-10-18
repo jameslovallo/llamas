@@ -18,13 +18,15 @@ export default function Map(props) {
 	const key = '&key=AIzaSyCxqAHXuQxKJh84FPydDkFcXyA2x7wIZVA'
 
 	return (
-		<a href={'https://google.com/maps/search/' + locations}>
-			<img
-				src={base + query + satellite + size + zoom + key}
-				alt={'Map showing ' + locations}
-				height={height}
-				width={width}
-			/>
-		</a>
+		<div className="map">
+			<a href={'https://google.com/maps/search/' + locations}>
+				<img
+					src={base + query + satellite + size + zoom + key}
+					alt={'Map showing ' + locations}
+					height={height}
+					width={width}
+				/>
+			</a>
+		</div>
 	)
 }

@@ -1,5 +1,4 @@
-@use '@material/card';
-@include card.core-styles;
+@use '@material/card/mdc-card';
 
 .mdc-card {
 	overflow: hidden;

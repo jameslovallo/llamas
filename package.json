@@ -13,9 +13,10 @@
 		"@material/button": "^13.0.0",
 		"@material/card": "^13.0.0",
 		"@material/drawer": "^13.0.0",
+		"@material/icon-button": "^13.0.0",
 		"@material/list": "^13.0.0",
+		"@material/top-app-bar": "^13.0.0",
 		"astro": "^0.20.12",
-		"storyblok-js-client": "^4.1.5",
 		"storyblok-rich-text-react-renderer": "^2.3.1"
 	}
 }

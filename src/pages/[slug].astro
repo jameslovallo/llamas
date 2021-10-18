@@ -1,8 +1,10 @@
 ---
+import DefaultLayout from "../layouts/DefaultLayout.astro"
+import Component from "../components/Component.jsx"
 export async function getStaticPaths() {
   const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
   const cacheBuster = new Date().getMilliseconds()
-  const data = await fetch(`https://api.storyblok.com/v1/cdn/stories/?token=${key}&cv=${cacheBuster}`)
+  const data = await fetch(`https://api.storyblok.com/v2/cdn/stories/?token=${key}&cv=${cacheBuster}`)
     .then(response => response.json());
 
   return data.stories.map((page) => {
@@ -14,39 +16,32 @@ export async function getStaticPaths() {
 }
 
 const {page} = Astro.props;
-import Component from "../components/Component.jsx"
 ---
+<DefaultLayout title="Title" description="Description">
+  {page.content.body.map(child => {
+    return <Component blok={child}/>
+  })}
+</DefaultLayout>
 
-<body>
-  <aside class="mdc-drawer mdc-drawer--modal">
-    <div class="mdc-drawer__content">
-      <nav class="mdc-list">
-        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
-          <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-          <span class="mdc-list-item__text">Inbox</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-          <span class="mdc-list-item__text">Outgoing</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-          <span class="mdc-list-item__text">Drafts</span>
-        </a>
-      </nav>
-    </div>
-  </aside>
-
-  <div class="mdc-drawer-scrim"></div>
-  <main>
-    {page.content.body.map(child => {
-      return <Component blok={child}/>
-    })}
-    <style lang="scss" global>
-      @import "../css/base.scss";
-    </style>
-  </main>
-</body>
+<style lang="scss" global>
+	main {
+		--vertical-margins: 2rem;
+		> :not(.full-width):not(.spacer) {
+			margin: var(--vertical-margins) auto;
+			max-width: calc(100% - 1rem);
+			@media (min-width: 640px) {
+				max-width: calc(100% - 2rem);
+			}
+			@media (min-width: 768px) {
+				max-width: 90vw;
+			}
+			@media (min-width: 1333px) {
+				max-width: 1200px;
+			}
+			&.link.button,
+			&.dialog {
+				display: block;
+			}
+		}
+	}
+</style>
