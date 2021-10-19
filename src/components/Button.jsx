@@ -17,7 +17,9 @@ export default function Button(props) {
 					dangerouslySetInnerHTML={{ __html: blok.icon }}
 				/>
 			)}
-			<div className="button__label">{blok.label}</div>
+			{blok.label &&
+				(<div className="button__label">{blok.label}</div>)
+			}
 		</a>
 	)
 }

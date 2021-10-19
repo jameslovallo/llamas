@@ -5,10 +5,10 @@ import Component from "../components/Component.jsx"
 export async function getStaticPaths() {
   const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
   const cacheBuster = new Date().getMilliseconds()
-  const data = await fetch(`https://api.storyblok.com/v2/cdn/stories/?token=${key}&cv=${cacheBuster}`)
-    .then(response => response.json());
+  const { stories } = await fetch(`https://api.storyblok.com/v2/cdn/stories/?excluding_slugs=settings&token=${key}&cv=${cacheBuster}`)
+	  .then(response => response.json());
 
-  return data.stories.map((story) => {
+  return stories.map((story) => {
     return {
       params: { slug: story.slug },
       props: { story }
