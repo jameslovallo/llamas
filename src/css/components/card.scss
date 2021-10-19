@@ -1,15 +1,23 @@
-@use '@material/card/mdc-card';
-
-.mdc-card {
+.card {
 	overflow: hidden;
+	background: var(--surface, white);
+	border-radius: 4px;
+	box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 
+		0px 1px 1px 0px rgb(0 0 0 / 14%),
+		0px 1px 3px 0px rgb(0 0 0 / 12%);
 
-	&__actions:empty {
-		min-height: 16px;
+	&__actions {
+		padding: 8px;
+		display: flex;
+
+		.button:not(.button--text):first-child {
+			margin-left: 8px;
+			margin-block: 8px;
+		}
 	}
 
-	&-wrapper__text-section {
-		padding-left: 16px;
-		padding-right: 16px;
+	&__text {
+		padding: 16px 16px 0;
 
 		h2,
 		h3,
@@ -30,15 +38,6 @@
 			font-weight: 400;
 			letter-spacing: 0.0178571429em;
 			opacity: 0.6;
-		}
-
-		&:first-of-type,
-		&:first-child {
-			padding-top: 16px;
-		}
-
-		+ & {
-			padding-top: 18px;
 		}
 	}
 }

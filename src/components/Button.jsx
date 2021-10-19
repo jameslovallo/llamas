@@ -1,17 +1,23 @@
 export default function Button(props) {
+	const { blok } = props
+	const classes = () => {
+		let classes = ['button']
+		blok.style && classes.push('button--' + blok.style)
+		blok.rounded && classes.push('button--rounded')
+		blok.trailing_icon && classes.push('button--trailing-icon')
+		return classes.join(' ').trim()
+	}
+
 	return (
-		<a
-			className={`mdc-button mdc-ripple-upgraded ${
-				props.type ? 'mdc-button--' + props.type : ''
-			}`}
-		>
-			{props.icon && (
-				<i ariaHidden="true" className="mdc-button__icon">
-					{props.icon}
-				</i>
+		<a className={classes()}>
+			{blok.icon && (
+				<span
+					ariaHidden="true"
+					className="button__icon"
+					dangerouslySetInnerHTML={{ __html: blok.icon }}
+				/>
 			)}
-			<span className="mdc-button__label">{props.blok.label}</span>
-			<div className="mdc-button__ripple"></div>
+			<span className="button__label">{blok.label}</span>
 		</a>
 	)
 }

@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro"
 import Component from "../components/Component.jsx"
+
 export async function getStaticPaths() {
   const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
   const cacheBuster = new Date().getMilliseconds()
@@ -22,26 +23,3 @@ const {page} = Astro.props;
     return <Component blok={child}/>
   })}
 </DefaultLayout>
-
-<style lang="scss" global>
-	main {
-		--vertical-margins: 2rem;
-		> :not(.full-width):not(.spacer) {
-			margin: var(--vertical-margins) auto;
-			max-width: calc(100% - 1rem);
-			@media (min-width: 640px) {
-				max-width: calc(100% - 2rem);
-			}
-			@media (min-width: 768px) {
-				max-width: 90vw;
-			}
-			@media (min-width: 1333px) {
-				max-width: 1200px;
-			}
-			&.link.button,
-			&.dialog {
-				display: block;
-			}
-		}
-	}
-</style>

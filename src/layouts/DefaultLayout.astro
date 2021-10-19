@@ -55,19 +55,6 @@ const {title, description} = content || false;
     <main class="mdc-top-app-bar--fixed-adjust">
       <slot/>
     </main>
-
-    <script>
-      const drawer = document.querySelector('.mdc-drawer');
-      const drawerButton = document.querySelector('.mdc-top-app-bar__navigation-icon')
-      const drawerScrim = document.querySelector('.mdc-drawer-scrim')
-      drawerButton.addEventListener('click', () => {
-        drawer.classList.add('mdc-drawer--open')
-        drawer.classList.add('mdc-drawer--animated')
-      })
-      drawerScrim.addEventListener('click', () => {
-        drawer.classList.remove('mdc-drawer--open')
-      })
-    </script>
     
   </body>
 
