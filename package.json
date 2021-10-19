@@ -10,7 +10,6 @@
 	},
 	"devDependencies": {
 		"@astrojs/renderer-react": "^0.2.2",
-		"@material/drawer": "^13.0.0",
 		"astro": "^0.20.12",
 		"storyblok-rich-text-react-renderer": "^2.3.1"
 	}
