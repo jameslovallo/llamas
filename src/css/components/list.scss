@@ -1,6 +1,6 @@
 .list {
-	border: 1px solid black;
 	list-style: none;
+	margin: 0;
 	padding: 8px 0;
 
 	&__item {
@@ -14,18 +14,42 @@
 			height: 72px;
 		}
 
-		&:hover:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: currentColor;
-			opacity: 0.08;
+		&__icon {
+			margin-right: 32px;
+			svg {
+				display: block;
+				height: 24px;
+				width: 24px;
+			}
 		}
-		&:active:before {
-			opacity: 0.16;
+
+		&__avatar {
+			display: block;
+			margin-right: 16px;
+			border-radius: 50%;
+		}
+
+		a {
+			user-select: none;
+		}
+
+		&:hover {
+			a:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: currentColor;
+				opacity: 0.08;
+			}
+		}
+
+		&:active {
+			a:before {
+				opacity: 0.16;
+			}
 		}
 
 		&__text {
@@ -34,9 +58,17 @@
 		}
 		&__secondary__text {
 			font-size: 14px;
-			letter-spacing: .25px;
+			letter-spacing: 0.25px;
 			line-height: normal;
 			opacity: 0.6;
 		}
+	}
+
+	.card__content & {
+			margin-inline: -16px;
+
+			&:last-child {
+				margin-bottom: -8px;
+			}
 	}
 }

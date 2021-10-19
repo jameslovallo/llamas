@@ -10,6 +10,37 @@
 		border: 1px solid var(--surface-border);
 	}
 
+	&__content {
+		padding: 16px 16px 0;
+
+		&:last-child {
+			padding-bottom: 16px;
+		}
+		
+		.text {
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin: 0;
+				font-size: 20px;
+				line-height: 32px;
+				font-weight: 500;
+				letter-spacing: 0.25px;
+				font-weight: bold;
+			}
+			p {
+				margin: 0;
+				font-size: 14px;
+				line-height: 20px;
+				font-weight: 400;
+				letter-spacing: 0.25px;
+				opacity: 0.6;
+			}
+		}
+	}
+
 	&__actions {
 		padding: 8px;
 		display: flex;
@@ -17,31 +48,6 @@
 		.button:not(.button--text):first-child {
 			margin-left: 8px;
 			margin-block: 8px;
-		}
-	}
-
-	&__text {
-		padding: 16px 16px 0;
-
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			margin: 0;
-			font-size: 20px;
-			line-height: 32px;
-			font-weight: 500;
-			letter-spacing: 0.25px;
-			font-weight: bold;
-		}
-		p {
-			margin: 0;
-			font-size: 14px;
-			line-height: 20px;
-			font-weight: 400;
-			letter-spacing: 0.25px;
-			opacity: 0.6;
 		}
 	}
 }

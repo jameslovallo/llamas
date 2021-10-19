@@ -11,13 +11,13 @@ export default function Button(props) {
 	return (
 		<a className={classes()}>
 			{blok.icon && (
-				<span
-					ariaHidden="true"
+				<div
+					aria-hidden="true"
 					className="button__icon"
 					dangerouslySetInnerHTML={{ __html: blok.icon }}
 				/>
 			)}
-			<span className="button__label">{blok.label}</span>
+			<div className="button__label">{blok.label}</div>
 		</a>
 	)
 }

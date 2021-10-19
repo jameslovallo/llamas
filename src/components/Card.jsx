@@ -1,5 +1,4 @@
-import Button from './Button'
-import TextRich from './TextRich'
+import CardChildren from './CardChildren'
 
 export default function Card(props) {
 	const { blok } = props
@@ -8,18 +7,23 @@ export default function Card(props) {
 			className={`card ${blok.outlined ? 'card--outlined' : ''}`}
 			style={blok.style}
 		>
+			{blok.media.map((media) => (
+				<CardChildren blok={media} />
+			))}
 			{blok.content.length > 0 && (
-				<div className="card__text">
+				<div className="card__content">
 					{blok.content.map((content) => (
-						<TextRich blok={content} />
+						<CardChildren blok={content} />
 					))}
 				</div>
 			)}
-			<div className="card__actions">
-				{blok.actions.map((action) => (
-					<Button blok={action} />
-				))}
-			</div>
+			{blok.actions.length > 0 && (
+				<div className="card__actions">
+					{blok.actions.map((action) => (
+						<CardChildren blok={action} />
+					))}
+				</div>
+			)}
 		</div>
 	)
 }
