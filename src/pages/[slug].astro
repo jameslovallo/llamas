@@ -8,18 +8,18 @@ export async function getStaticPaths() {
   const data = await fetch(`https://api.storyblok.com/v2/cdn/stories/?token=${key}&cv=${cacheBuster}`)
     .then(response => response.json());
 
-  return data.stories.map((page) => {
+  return data.stories.map((story) => {
     return {
-      params: { slug: page.slug },
-      props: { page }
+      params: { slug: story.slug },
+      props: { story }
     };
   });
 }
 
-const {page} = Astro.props;
+const { story } = Astro.props;
 ---
 <DefaultLayout title="Title" description="Description">
-  {page.content.body.map(child => {
+  {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
 </DefaultLayout>

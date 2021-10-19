@@ -1,0 +1,30 @@
+//padding 8 12
+
+.app-bar {
+	--header: var(--primary);
+	--on-header: var(--on-primary);
+	display: flex;
+	align-items: center;
+	padding: 4px;
+	background: var(--header);
+	color: var(--on-header);
+
+	@media (min-width: 768px) {
+		padding: 8px 12px;
+	}
+
+	&__title {
+		padding-left: 20px;
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+	&__spacer {
+		flex-grow: 1;
+	}
+
+	.button {
+		--button: --on-header;
+		--on-button: --header;
+	}
+}

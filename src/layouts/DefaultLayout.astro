@@ -1,7 +1,16 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import AppBar from '../components/AppBar.jsx';
+
 const {content} = Astro.props;
-const {title, description} = content || false;
+const {title, description} = content || false
+
+const key = "BZX4R4Dr8Y6rnegRb9YaPwtt";
+const cacheBuster = new Date().getMilliseconds();
+const settings = await fetch(
+  `https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&cv=${cacheBuster}`
+)
+  .then((response) => response.json())
 ---
 <html lang="en">
 
@@ -38,19 +47,7 @@ const {title, description} = content || false;
     </aside>
     <div class="mdc-drawer-scrim"></div>
 
-    <header class="mdc-top-app-bar">
-      <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-          <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
-          <span class="mdc-top-app-bar__title">Page title</span>
-        </section>
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-          <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">favorite</button>
-          <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
-          <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
-        </section>
-      </div>
-    </header>
+    <AppBar blok={settings.story.content}/>
     
     <main class="mdc-top-app-bar--fixed-adjust">
       <slot/>

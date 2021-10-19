@@ -1,1 +1,42 @@
-@use "@material/list/mdc-list";
+.list {
+	border: 1px solid black;
+	list-style: none;
+	padding: 8px 0;
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding-inline: 16px;
+		height: 48px;
+
+		&--two-line {
+			height: 72px;
+		}
+
+		&:hover:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: currentColor;
+			opacity: 0.08;
+		}
+		&:active:before {
+			opacity: 0.16;
+		}
+
+		&__text {
+			letter-spacing: 0.15px;
+			line-height: 24px;
+		}
+		&__secondary__text {
+			font-size: 14px;
+			letter-spacing: .25px;
+			line-height: normal;
+			opacity: 0.6;
+		}
+	}
+}

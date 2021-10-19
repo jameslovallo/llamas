@@ -1,4 +1,6 @@
 .button {
+	--button: var(--primary);
+	--on-button: var(--on-button);
 	display: inline-flex;
 	align-items: center;
 	position: relative;
@@ -6,24 +8,26 @@
 	border-radius: 4px;
 	padding-inline: 16px;
 	min-height: 36px;
-	color: var(--primary);
+	color: var(--button);
 	font-family: var(--ui-family);
 	text-transform: uppercase;
 	font-size: 14px;
 	letter-spacing: 1.25px;
 	font-weight: 500;
+	user-select: none;
 
-	&:hover {
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: currentColor;
-			opacity: 0.05;
-		}
+	&:hover:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: currentColor;
+		opacity: 0.08;
+	}
+	&:active:before {
+		opacity: 0.16;
 	}
 
 	&__label {
@@ -46,7 +50,7 @@
 	}
 
 	&--outlined {
-		border: 1px solid var(--primary);
+		border: 1px solid var(--button);
 	}
 
 	&--raised {
@@ -56,8 +60,8 @@
 
 	&--raised,
 	&--unelevated {
-		background: var(--primary);
-		color: var(--on-primary);
+		background: var(--button);
+		color: var(--on-button);
 	}
 
 	&--rounded {
