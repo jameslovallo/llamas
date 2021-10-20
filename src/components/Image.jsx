@@ -1,4 +1,4 @@
-export default async function Image(props) {
+export default function Image(props) {
 	const { blok } = props
 	const placeholder = `//picsum.photos/seed/${blok._uid}/400/300/`
 
