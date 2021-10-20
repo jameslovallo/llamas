@@ -20,7 +20,7 @@ const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings
     </style>
   </head>
 
-  <body>
+  <body class={process.env.npm_lifecycle_script}>
 
     <AppDrawer blok={story}/>
     <AppBar blok={story}/>

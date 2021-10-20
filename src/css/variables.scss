@@ -6,3 +6,11 @@
 	--surface-border: #e0e0e0;
 	--on-surface: black;
 }
+
+$breakpoints: (
+	'xs': '0px',
+	'sm': '480px',
+	'md': '768px',
+	'lg': '1024px',
+	'xl': '1333px',
+);

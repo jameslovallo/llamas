@@ -1,12 +1,17 @@
 import CardChildren from './CardChildren'
+import responsive from './utils/responsive'
 
 export default function Card(props) {
 	const { blok } = props
+
+	const classes = () => {
+		let classes = ['card']
+		blok.outlined && classes.push('button--outlined')
+		return classes.join(' ').trim()
+	}
+
 	return (
-		<div
-			className={`card ${blok.outlined ? 'card--outlined' : ''}`}
-			style={blok.style}
-		>
+		<div className={classes()} style={responsive(blok.responsive)}>
 			{blok.media.map((media) => (
 				<CardChildren blok={media} />
 			))}

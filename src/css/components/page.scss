@@ -1,14 +1,43 @@
 main {
 	display: grid;
-	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
+	grid-template-columns: repeat(12, 1fr);
 	gap: 24px 16px;
-	--gutter: minmax(0, calc(50vw - 624px));
+	margin-inline: 16px;
 
 	@media (min-width: 640px) {
-		--gutter: minmax(5vw, calc(50vw - 624px));
+		margin-inline: auto;
+		width: 90vw;
+		max-width: 1200px;
 	}
 
 	> * {
-		grid-column: 2 / span 12;
+		grid-column: auto / span 12;
+
+		@each $breakpoint, $value in $breakpoints {
+			@media (min-width: $value) {
+				grid-column: auto / span var(--#{unquote($breakpoint)}, 12);
+			}
+		}
+	}
+
+	.dev &:before {
+		display: block;
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 8px 12px;
+		color: white;
+		border-radius: 999px;
+		background: #09b3af;
+		font-weight: bold;
+		font-size: 12px;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		@each $breakpoint, $value in $breakpoints {
+			@media (min-width: $value) {
+				content: "Current breakpoint: #{unquote($breakpoint)}";
+			}
+		}
 	}
 }

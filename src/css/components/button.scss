@@ -1,6 +1,6 @@
 .button {
 	--button: var(--primary);
-	--on-button: var(--on-button);
+	--on-button: var(--on-primary);
 	display: inline-flex;
 	align-items: center;
 	position: relative;
@@ -43,7 +43,6 @@
 			margin-left: 8px;
 		}
 		svg {
-			display: block;
 			height: 18px;
 			width: 18px;
 			fill: currentColor;

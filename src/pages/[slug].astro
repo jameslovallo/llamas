@@ -5,7 +5,8 @@ import Component from "../components/Component.jsx"
 export async function getStaticPaths() {
   const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
   const cacheBuster = new Date().getMilliseconds()
-  const home = process.env.npm_lifecycle_script !== 'astro dev' ? 'home,' : ''
+  const dev = process.env.npm_lifecycle_script !== 'astro dev'
+  const home = dev ? 'home,' : ''
 
   const { stories } = await fetch(`https://api.storyblok.com/v2/cdn/stories/?excluding_slugs=${home}settings&token=${key}&cv=${cacheBuster}`)
 	  .then(response => response.json());
