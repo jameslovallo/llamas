@@ -1,3 +1,5 @@
+import link from './utils/link'
+
 export default function Button(props) {
 	const { blok } = props
 	const classes = () => {
@@ -8,8 +10,10 @@ export default function Button(props) {
 		return classes.join(' ').trim()
 	}
 
+	const href = blok.link ? link(blok.link) : undefined
+
 	return (
-		<a className={classes()}>
+		<a className={classes()} {...(href ? { href: href } : {})}>
 			{blok.icon && (
 				<div
 					aria-hidden="true"
@@ -17,9 +21,7 @@ export default function Button(props) {
 					dangerouslySetInnerHTML={{ __html: blok.icon }}
 				/>
 			)}
-			{blok.label &&
-				(<div className="button__label">{blok.label}</div>)
-			}
+			{blok.label && <div className="button__label">{blok.label}</div>}
 		</a>
 	)
 }
