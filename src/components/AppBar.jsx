@@ -13,7 +13,7 @@ export default function AppBar(props) {
 					style: 'icon',
 				}}
 			/>
-			<span className="app-bar__title">{settings.app_bar_title}</span>
+			<a className="app-bar__title" href="/">{settings.app_bar_title}</a>
 			<div className="app-bar__spacer" />
 			{settings.app_bar_desktop.map((action) => (
 				<Button blok={action} />
