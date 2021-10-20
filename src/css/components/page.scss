@@ -1,20 +1,14 @@
 main {
-	--vertical-margins: 2rem;
-	> :not(.full-width):not(.spacer) {
-		margin: var(--vertical-margins) auto;
-		max-width: calc(100% - 1rem);
-		@media (min-width: 640px) {
-			max-width: calc(100% - 2rem);
-		}
-		@media (min-width: 768px) {
-			max-width: 90vw;
-		}
-		@media (min-width: 1333px) {
-			max-width: 1200px;
-		}
-		&.link.button,
-		&.dialog {
-			display: block;
-		}
+	display: grid;
+	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
+	gap: 24px 16px;
+	--gutter: minmax(0, calc(50vw - 624px));
+
+	@media (min-width: 640px) {
+		--gutter: minmax(5vw, calc(50vw - 624px));
+	}
+
+	> * {
+		grid-column: 2 / span 12;
 	}
 }
