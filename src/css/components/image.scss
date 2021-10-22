@@ -1,8 +1,12 @@
 .image {
 	position: relative;
+	overflow: hidden;
 
 	&.loading {
 		background: #ccc;
+		img {
+			filter: blur(20px)
+		}
 	}
 
 	img {

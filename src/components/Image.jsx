@@ -14,7 +14,13 @@ export default function Image(props) {
 
 	return (
 		<div className="image loading" style={{ paddingTop: img.paddingTop }}>
-			<img data-src={img.src} width={img.width} height={img.height} />
+			<img
+				src={img.src.replace('width', 30)}
+				data-src={img.src}
+				loading="lazy"
+				width={img.width}
+				height={img.height}
+			/>
 		</div>
 	)
 }
