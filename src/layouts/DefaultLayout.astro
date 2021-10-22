@@ -33,7 +33,7 @@ const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings
       // load images
       const imgs = document.querySelectorAll(".image img")
       imgs.forEach(img => {
-        const width = Math.floor(img.clientWidth / 100) * 100
+        const width = Math.floor(img.clientWidth / 100) * 100 * devicePixelRatio
         img.src = img.dataset.src.replace('width', width)
         img.addEventListener('load', ()=>{
           img.parentElement.classList.remove('loading')
