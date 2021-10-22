@@ -10,7 +10,7 @@ const components = {
 	TextRich: TextRich,
 }
 
-export default function Component(props) {
+export default function CardChildren(props) {
 	const C = components[props.blok.component]
 	return <C blok={props.blok} />
 }

@@ -17,8 +17,8 @@
 	background: var(--surface);
 	color: var(--on-surface);
 	transition: var(--drawer-transition-speed);
-	z-index: 99999;
 	transform: translate3D(-100%, 0, 0);
+	z-index: 99999;
 
 	&--open {
 		transform: translate3D(0%, 0, 0);
@@ -28,10 +28,15 @@
 		right: 0;
 		transition: var(--drawer-transition-speed);
 		cursor: pointer;
+		z-index: 99999;
 
 		&--open {
 			background: black;
 			opacity: 0.5;
 		}
+	}
+
+	&> *:not(.list) {
+		margin-inline: 16px;
 	}
 }
