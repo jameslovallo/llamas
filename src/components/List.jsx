@@ -1,4 +1,4 @@
-import link from "./utils/link"
+import link from './utils/link'
 
 export default function List(props) {
 	const { blok } = props
