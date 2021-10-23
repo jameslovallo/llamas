@@ -1,3 +1,5 @@
+import responsive from './utils/responsive'
+
 export default function Image(props) {
 	const { blok } = props
 	let img = {}
@@ -29,6 +31,7 @@ export default function Image(props) {
 		const padding = Math.round((img.height / img.width) * 100) + '%'
 
 		img.styles = {
+			...responsive(blok.responsive),
 			paddingTop: blok.fixed_width ? undefined : padding,
 			width: blok.fixed_width,
 			filter: `brightness(${blok.brightness})

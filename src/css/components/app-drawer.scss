@@ -12,11 +12,13 @@
 	}
 
 	width: 300px;
+	box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px,
+		rgb(0 0 0 / 14%) 0px 16px 24px 2px, rgb(0 0 0 / 12%) 0px 6px 30px 5px;
 	background: var(--surface);
 	color: var(--on-surface);
 	will-change: transform;
 	transition: transform var(--drawer-transition-speed);
-	transform: translate3D(-100%, 0, 0);
+	transform: translate3D(-110%, 0, 0);
 	z-index: 99999;
 
 	&--open {
@@ -33,11 +35,11 @@
 
 		&--open {
 			background: black;
-			opacity: 0.5;
+			opacity: 0.33;
 		}
 	}
 
-	&> *:not(.list) {
+	& > *:not(.list) {
 		margin-inline: 16px;
 	}
 }

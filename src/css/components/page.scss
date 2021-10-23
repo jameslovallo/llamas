@@ -3,6 +3,7 @@ main {
 	grid-template-columns: repeat(12, 1fr);
 	gap: 24px 16px;
 	margin-inline: 16px;
+	margin-block: 32px;
 
 	@media (min-width: 640px) {
 		margin-inline: auto;
@@ -19,26 +20,26 @@ main {
 			}
 		}
 	}
+}
 
-	.dev &:before {
-		display: block;
-		position: fixed;
-		bottom: 30px;
-		left: 50%;
-		transform: translateX(-50%);
-		padding: 8px 12px;
-		color: white;
-		border-radius: 999px;
-		background: #09b3af;
-		font-weight: bold;
-		font-size: 12px;
-		letter-spacing: 1.5px;
-		text-transform: uppercase;
-		z-index: 999;
-		@each $breakpoint, $value in $breakpoints {
-			@media (min-width: $value) {
-				content: "Current breakpoint: #{unquote($breakpoint)}";
-			}
+body.dev:before {
+	display: block;
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 8px 12px;
+	color: white;
+	border-radius: 999px;
+	background: #09b3af;
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	z-index: 999;
+	@each $breakpoint, $value in $breakpoints {
+		@media (min-width: $value) {
+			content: 'breakpoint: #{unquote($breakpoint)}';
 		}
 	}
 }

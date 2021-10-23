@@ -1,4 +1,6 @@
 .card {
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
 	background: var(--surface, white);
 	border-radius: 4px;
@@ -11,6 +13,7 @@
 	}
 
 	&__content {
+		flex-grow: 1;
 		padding: 16px 16px 0;
 
 		&:last-child {
