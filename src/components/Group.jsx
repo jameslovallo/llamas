@@ -1,4 +1,4 @@
-import CardChildren from './CardChildren'
+import Children from './Children'
 import responsive from './utils/responsive'
 
 export default function Group(props) {
@@ -13,7 +13,7 @@ export default function Group(props) {
 			{blok.content.length > 0 && (
 				<div className="group" style={styles}>
 					{blok.content.map((blok) => (
-						<CardChildren blok={blok} />
+						<Children blok={blok} />
 					))}
 				</div>
 			)}

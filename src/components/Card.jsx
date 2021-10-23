@@ -1,4 +1,4 @@
-import CardChildren from './CardChildren'
+import Children from './Children'
 import responsive from './utils/responsive'
 
 export default function Card(props) {
@@ -13,19 +13,19 @@ export default function Card(props) {
 	return (
 		<div className={classes()} style={responsive(blok.responsive)}>
 			{blok.media.map((media) => (
-				<CardChildren blok={media} />
+				<Children blok={media} />
 			))}
 			{blok.content.length > 0 && (
 				<div className="card__content">
 					{blok.content.map((content) => (
-						<CardChildren blok={content} />
+						<Children blok={content} />
 					))}
 				</div>
 			)}
 			{blok.actions.length > 0 && (
 				<div className="card__actions">
 					{blok.actions.map((action) => (
-						<CardChildren blok={action} />
+						<Children blok={action} />
 					))}
 				</div>
 			)}
