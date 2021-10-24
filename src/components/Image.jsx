@@ -49,7 +49,6 @@ export default function Image(props) {
 				<img
 					src={img.tiny || ''}
 					data-src={img.src}
-					loading="lazy"
 					width={img.width}
 					height={img.height}
 				/>
