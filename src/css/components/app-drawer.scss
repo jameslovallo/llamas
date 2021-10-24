@@ -1,7 +1,6 @@
 .app-drawer {
 	--app-drawer: var(--primary);
 	--on-app-drawer: var(--on-primary);
-	--drawer-transition-speed: 0.33s;
 
 	&,
 	&__scrim {
@@ -17,7 +16,7 @@
 	background: var(--surface);
 	color: var(--on-surface);
 	will-change: transform;
-	transition: transform var(--drawer-transition-speed);
+	transition: transform 0.33s;
 	transform: translate3D(-110%, 0, 0);
 	z-index: 99999;
 
@@ -29,7 +28,7 @@
 		right: 0;
 		opacity: 0;
 		will-change: opacity;
-		transition: opacity var(--drawer-transition-speed);
+		transition: opacity 0.33s;
 		cursor: pointer;
 		z-index: 99999;
 
