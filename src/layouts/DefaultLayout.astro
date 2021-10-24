@@ -10,6 +10,7 @@ const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&cv=${cacheBuster}`)
   .then(response => response.json());
+const global = story.content
 ---
 <html lang="en">
 
@@ -22,8 +23,8 @@ const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings
 
   <body class={process.env.npm_lifecycle_script}>
 
-    <AppDrawer blok={story}/>
-    <AppBar blok={story}/>
+    <AppDrawer global={global}/>
+    <AppBar global={global}/>
     
     <main>
       <slot/>

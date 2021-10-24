@@ -49,7 +49,7 @@
 		display: flex;
 
 		.button:not(.button--text):first-child {
-			margin-left: 8px;
+			margin-inline-start: 8px;
 			margin-block: 8px;
 		}
 	}

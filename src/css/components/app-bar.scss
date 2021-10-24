@@ -5,17 +5,23 @@
 	--on-app-bar: var(--on-primary);
 	display: flex;
 	align-items: center;
-	padding: 4px;
+	padding-inline: 4px 8px;
+	height: 56px;
 	background: var(--app-bar);
 	color: var(--on-app-bar);
 
 	@media (min-width: 768px) {
-		padding: 8px 12px;
+		padding-inline: 12px 16px;
+		height: 64px;
 	}
 
 	& > .button:first-child {
-		margin-right: 20px;
+		margin-inline-end: 20px;
 		cursor: pointer;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
 	}
 
 	&__title {
@@ -29,8 +35,27 @@
 		flex-grow: 1;
 	}
 
+	&__desktop {
+		display: none;
+
+		@media(min-width: 768px) {
+			display: block;
+		}
+	}
+
+	&__mobile {
+		.button--raised:first-child {
+			margin-inline-start: 8px;
+		}
+	}
+
 	.button {
-		--button: --on-app-bar;
-		--on-button: --app-bar;
+		--button: var(--on-app-bar);
+		--on-button: var(--app-bar);
+		
+		&--raised {
+			--button: var(--on-app-bar);
+			--on-button: var(--app-bar);
+		}
 	}
 }

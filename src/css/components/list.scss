@@ -15,7 +15,7 @@
 		}
 
 		&__icon {
-			margin-right: 32px;
+			margin-inline-end: 32px;
 			svg {
 				height: 24px;
 				width: 24px;
@@ -24,7 +24,7 @@
 
 		&__avatar {
 			display: block;
-			margin-right: 16px;
+			margin-inline-end: 16px;
 			border-radius: 50%;
 		}
 
