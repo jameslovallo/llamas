@@ -1,0 +1,63 @@
+.section {
+	--section: var(--primary);
+	--on-section: var(--on-primary);
+	--safe-width: calc(90vw - (100vw - 100%));
+	background: var(--section);
+	color: var(--on-section);
+	padding-block: 32px;
+
+	.button {
+		--button: var(--on-section);
+		--on-button: var(--section);
+	}
+
+	&.full-width {
+		padding-block: 0;
+		margin-inline: -16px;
+	
+		@media (min-width: 640px) {
+			margin-inline: -5vw;
+		}
+		@media (min-width: 1320px) {
+			margin-inline: calc(-1 * (50vw - 600px));
+		}
+
+		&.swoop {
+			--swoop-curve: 15vw;
+			position: relative;
+			margin-block: 5vw;
+			border-bottom-right-radius: var(--swoop-curve);
+			padding-inline: 16px;
+			padding-block: 24px;
+	
+			@media (min-width: 640px) {
+				--swoop-curve: 10vw;
+				padding-inline: 5vw;
+				padding-block: 0;
+			}
+			@media (min-width: 1320px) {
+				padding-inline: calc(50vw - 600px);
+			}
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				top: calc(var(--swoop-curve) * -1);
+				right: 0;
+				width: var(--swoop-curve);
+				height: var(--swoop-curve);
+				z-index: -1;
+			}
+
+			&:before {
+				background: inherit;
+			}
+
+			&:after {
+				background: var(--background);
+				border-bottom-right-radius: var(--swoop-curve);
+			}
+		}
+	}
+}
