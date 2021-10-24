@@ -1,5 +1,6 @@
 import Button from './Button'
 import Card from './Card'
+import Code from './Code'
 import Group from './Group'
 import Image from './Image'
 import List from './List'
@@ -10,6 +11,7 @@ import TextRich from './TextRich'
 const components = {
 	Button: Button,
 	Card: Card,
+	Code: Code,
 	Group: Group,
 	Image: Image,
 	List: List,
