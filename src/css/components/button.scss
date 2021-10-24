@@ -17,7 +17,7 @@
 	font-weight: 500;
 	user-select: none;
 
-	&:hover:before {
+	&:before {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -25,6 +25,10 @@
 		bottom: 0;
 		left: 0;
 		background: currentColor;
+		opacity: 0;
+	}
+
+	&:hover:before {
 		opacity: 0.08;
 	}
 	&:active:before {
@@ -50,7 +54,7 @@
 	}
 
 	&--outlined {
-		border: 1px solid var(--button);
+		border: 1.5px solid var(--button);
 	}
 
 	&--raised {
@@ -62,6 +66,18 @@
 	&--unelevated {
 		background: var(--button);
 		color: var(--on-button);
+	}
+
+	&--subtle {
+		&:before {
+			opacity: 0.08;
+		}
+		&:hover:before {
+			opacity: 0.12;
+		}
+		&:active:before {
+			opacity: 0.16;
+		}
 	}
 
 	&--rounded {
