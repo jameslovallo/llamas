@@ -4,6 +4,7 @@ import Group from './Group'
 import Image from './Image'
 import List from './List'
 import Map from './Map'
+import Spacer from './Spacer'
 import TextRich from './TextRich'
 
 const components = {
@@ -13,6 +14,7 @@ const components = {
 	Image: Image,
 	List: List,
 	Map: Map,
+	Spacer: Spacer,
 	TextRich: TextRich,
 }
 

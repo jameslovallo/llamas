@@ -6,6 +6,7 @@ import Image from './Image'
 import List from './List'
 import Map from './Map'
 import Section from './Section'
+import Spacer from './Spacer'
 import TextRich from './TextRich'
 
 const components = {
@@ -17,6 +18,7 @@ const components = {
 	List: List,
 	Map: Map,
 	Section: Section,
+	Spacer: Spacer,
 	TextRich: TextRich,
 }
 

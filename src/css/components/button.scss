@@ -70,13 +70,13 @@
 
 	&--subtle {
 		&:before {
-			opacity: 0.08;
-		}
-		&:hover:before {
 			opacity: 0.12;
 		}
-		&:active:before {
+		&:hover:before {
 			opacity: 0.16;
+		}
+		&:active:before {
+			opacity: 0.20;
 		}
 	}
 
