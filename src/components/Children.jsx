@@ -5,6 +5,7 @@ import List from './List'
 import Map from './Map'
 import Spacer from './Spacer'
 import TextRich from './TextRich'
+import Video from './Video'
 
 const components = {
 	Button: Button,
@@ -14,6 +15,7 @@ const components = {
 	Map: Map,
 	Spacer: Spacer,
 	TextRich: TextRich,
+	Video: Video,
 }
 
 export default function Children(props) {

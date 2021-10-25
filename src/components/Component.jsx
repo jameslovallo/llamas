@@ -8,6 +8,7 @@ import Map from './Map'
 import Section from './Section'
 import Spacer from './Spacer'
 import TextRich from './TextRich'
+import Video from './Video'
 
 const components = {
 	Button: Button,
@@ -20,6 +21,7 @@ const components = {
 	Section: Section,
 	Spacer: Spacer,
 	TextRich: TextRich,
+	Video: Video,
 }
 
 export default function Component(props) {

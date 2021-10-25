@@ -5,6 +5,7 @@ import Image from './Image'
 import List from './List'
 import Map from './Map'
 import Spacer from './Spacer'
+import Video from './Video'
 import TextRich from './TextRich'
 
 const components = {
@@ -15,6 +16,7 @@ const components = {
 	List: List,
 	Map: Map,
 	Spacer: Spacer,
+	Video: Video,
 	TextRich: TextRich,
 }
 
