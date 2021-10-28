@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import AppBar from '../components/AppBar';
 import AppDrawer from '../components/AppDrawer';
+import Component from '../components/Component'
 
 const { content } = Astro.props;
 const { title, description } = content || false
@@ -29,6 +30,10 @@ const global = story.content
     <main class="grid">
       <slot/>
     </main>
+
+    {global.footer.map(content => (
+      <Component blok={content}/>
+    ))}
 
     <script>
       // load images

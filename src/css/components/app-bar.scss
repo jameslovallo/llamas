@@ -44,7 +44,7 @@
 	}
 
 	&__mobile {
-		.button--raised:first-child {
+		*:not(.button--text):first-child {
 			margin-inline-start: 8px;
 		}
 	}
