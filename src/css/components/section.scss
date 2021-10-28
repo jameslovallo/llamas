@@ -11,7 +11,7 @@
 		--on-button: var(--section);
 	}
 
-	&--full-width {
+	.grid &--full-width {
 		margin-inline: -16px;
 	
 		@media (min-width: 640px) {
