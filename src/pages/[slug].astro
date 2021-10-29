@@ -21,7 +21,10 @@ export async function getStaticPaths() {
 
 const { story } = Astro.props;
 ---
-<DefaultLayout title="Title" description="Description">
+<DefaultLayout 
+  title={story.content.SEO.title || story.name}
+  description={story.content.SEO.description || ""}
+>
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}

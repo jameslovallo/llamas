@@ -7,7 +7,10 @@ const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?token=${key}&cv=${cacheBuster}`)
 	.then(response => response.json());
 ---
-<DefaultLayout title="Title" description="Description">
+<DefaultLayout
+  title={story.content.SEO.title || story.name}
+  description={story.content.SEO.description || ""}
+>
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}

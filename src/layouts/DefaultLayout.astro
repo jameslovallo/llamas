@@ -3,9 +3,9 @@ import BaseHead from '../components/BaseHead.astro';
 import AppBar from '../components/AppBar';
 import AppDrawer from '../components/AppDrawer';
 import Component from '../components/Component'
+import Theme from '../components/Theme'
 
-const { content } = Astro.props;
-const { title, description } = content || false
+const { title, description } = Astro.props;
 
 const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
@@ -17,9 +17,11 @@ const global = story.content
 
   <head>
     <BaseHead title={ title } description={ description } />
+    {global.custom_html}
     <style lang="scss" global>
       @import "../css/base.scss";
     </style>
+    <Theme global={global}/>
   </head>
 
   <body class={process.env.npm_lifecycle_script}>

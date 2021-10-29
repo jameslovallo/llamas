@@ -1,11 +1,13 @@
 :root {
-	--background: #fcfcfc;
+	--background: #fff;
 	--on-background: black;
 	--primary: #512DA8;
 	--on-primary: white;
+	--secondary: #512DA8;
+	--on-secondary: white;
 	--surface: white;
-	--surface-border: #e0e0e0;
 	--on-surface: black;
+	--surface-border: #e0e0e0;
 }
 
 $breakpoints: (
