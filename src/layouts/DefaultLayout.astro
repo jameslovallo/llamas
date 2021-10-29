@@ -15,24 +15,26 @@ const global = story.content
 <html lang="en">
 
   <head>
-    <BaseHead title={ title } description={ description } />
+    <BaseHead title={ title } description={ description }/>
     <style lang="scss" global>
       @import "../css/base.scss";
     </style>
-    <Theme global={global}/>
+    <Theme global={ global }/>
   </head>
 
-  <body class={process.env.npm_lifecycle_script}>
+  <body class={ process.env.npm_lifecycle_script }>
 
-    <AppDrawer global={global}/>
-    <AppBar global={global}/>
+    <AppDrawer global={ global }/>
+    <AppBar global={ global }/>
     
-    <main class="grid">
-      <slot/>
+    <main>
+      <div class="grid">
+        <slot/>
+      </div>
     </main>
 
     {global.footer.map(content => (
-      <Component blok={content}/>
+      <Component blok={ content }/>
     ))}
 
     <!-- Load Images -->
@@ -44,7 +46,7 @@ const global = story.content
         let height = Math.round(img.clientHeight * devicePixelRatio)
         src = src.replace('width', width).replace('height', height)
         img.src = src
-        img.addEventListener('load', ()=>{
+        img.addEventListener('load', () => {
           img.parentElement.classList.remove('loading')
         })
       })
@@ -52,7 +54,7 @@ const global = story.content
 
     <!-- Activate the Drawer -->
     <script type="module" >
-      import {lock, unlock} from "https://unpkg.com/tua-body-scroll-lock@1.2.1/dist/tua-bsl.esm.browser.min.js"
+      import { lock, unlock } from "https://unpkg.com/tua-body-scroll-lock@1.2.1/dist/tua-bsl.esm.browser.min.js"
       let drawerButton = document.querySelector(".app-bar > .button:first-child")
       let drawer = document.querySelector(".app-drawer")
       let drawerScrim = document.querySelector(".app-drawer__scrim")
@@ -78,8 +80,14 @@ const global = story.content
       })
     </script>
 
+    <script>
+      if (window.location.pathname === "/settings") {
+        window.location.replace("http://localhost:3000")
+      }
+    </script>
+
     <!-- Deferred Crap like Fonts -->
-    {global.custom_html}
+    { global.custom_html }
 
   </body>
 
