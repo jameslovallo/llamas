@@ -6,7 +6,6 @@ import Component from '../components/Component'
 import Theme from '../components/Theme'
 
 const { title, description } = Astro.props;
-
 const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&cv=${cacheBuster}`)
@@ -17,7 +16,6 @@ const global = story.content
 
   <head>
     <BaseHead title={ title } description={ description } />
-    {global.custom_html}
     <style lang="scss" global>
       @import "../css/base.scss";
     </style>
@@ -37,8 +35,8 @@ const global = story.content
       <Component blok={content}/>
     ))}
 
+    <!-- Load Images -->
     <script>
-      // load images
       const imgs = document.querySelectorAll(".image img")
       imgs.forEach(img => {
         let src = img.dataset.src
@@ -52,8 +50,8 @@ const global = story.content
       })
     </script>
 
-    <script defer type="module" >
-      // activate the drawer
+    <!-- Activate the Drawer -->
+    <script type="module" >
       import {lock, unlock} from "https://unpkg.com/tua-body-scroll-lock@1.2.1/dist/tua-bsl.esm.browser.min.js"
       let drawerButton = document.querySelector(".app-bar > .button:first-child")
       let drawer = document.querySelector(".app-drawer")
@@ -79,7 +77,10 @@ const global = story.content
         unlock()
       })
     </script>
-    
+
+    <!-- Deferred Crap like Fonts -->
+    {global.custom_html}
+
   </body>
 
 </html>
