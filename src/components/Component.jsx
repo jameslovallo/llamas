@@ -7,6 +7,7 @@ import List from './List'
 import Map from './Map'
 import Section from './Section'
 import Spacer from './Spacer'
+import Tabs from './Tabs'
 import TextRich from './TextRich'
 import Video from './Video'
 
@@ -20,6 +21,7 @@ const components = {
 	Map: Map,
 	Section: Section,
 	Spacer: Spacer,
+	Tabs: Tabs,
 	TextRich: TextRich,
 	Video: Video,
 }

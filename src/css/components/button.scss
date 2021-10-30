@@ -31,6 +31,7 @@
 	&:hover:before {
 		opacity: 0.08;
 	}
+
 	&:active:before {
 		opacity: 0.16;
 	}
@@ -41,11 +42,13 @@
 
 	&__icon {
 		margin-inline-end: 8px;
+
 		.button--trailing-icon & {
 			order: 1;
 			margin-inline-end: 0;
 			margin-inline-start: 8px;
 		}
+
 		svg {
 			height: 18px;
 			width: 18px;
@@ -72,9 +75,11 @@
 		&:before {
 			opacity: 0.12;
 		}
+
 		&:hover:before {
 			opacity: 0.16;
 		}
+
 		&:active:before {
 			opacity: 0.20;
 		}
@@ -98,6 +103,7 @@
 
 		.button__icon {
 			margin: 0;
+			
 			svg {
 				height: 24px;
 				width: 24px;

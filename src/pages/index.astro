@@ -14,4 +14,7 @@ const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?tok
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
+  {JSON.stringify(story.content.body).includes(`"component":"Tabs"`) === true &&
+    <script src="/js/tabs.js"></script>
+  }
 </DefaultLayout>

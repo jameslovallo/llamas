@@ -20,6 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { story } = Astro.props;
+console.log(story.content.body.includes(`"component":"Tabs"`))
 ---
 <DefaultLayout 
   title={story.content.SEO.title || story.name}
@@ -28,4 +29,7 @@ const { story } = Astro.props;
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
+  {JSON.stringify(story.content.body).includes(`"component":"Tabs"`) === true &&
+    <script src="/js/tabs.js"></script>
+  }
 </DefaultLayout>

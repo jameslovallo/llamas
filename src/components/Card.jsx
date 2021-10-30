@@ -6,7 +6,8 @@ export default function Card(props) {
 
 	const classes = () => {
 		let classes = ['card']
-		blok.outlined && classes.push('card--outlined')
+		blok.style === "elevated" && classes.push('card--elevated')
+		blok.style === "outlined" && classes.push('card--outlined')
 		return classes.join(' ').trim()
 	}
 

@@ -1,0 +1,84 @@
+.tabs {
+	border-radius: 4px;
+	overflow: hidden;
+
+	&--elevated {
+		box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+			0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+
+		[role='tablist'] {
+			box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+				0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+		}
+	}
+
+	&--outlined {
+		border: 1px solid var(--surface-border);
+
+		[role='tablist'] {
+			border-bottom: 1px solid var(--surface-border);
+		}
+	}
+
+	&--elevated,
+	&--outlined {
+		.text {
+			padding: 16px;
+		}
+	}
+
+	[role='tablist'] {
+		display: flex;
+
+		[role='tab'] {
+			position: relative;
+			padding: 0 24px;
+			height: 48px;
+			flex-grow: 1;
+			border-radius: 0;
+			border: none;
+			background: transparent;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 14px;
+			letter-spacing: 1.25px;
+			font-weight: 500;
+			user-select: none;
+			cursor: pointer;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: currentColor;
+				opacity: 0;
+			}
+
+			&:hover:before,
+			&:focus:before {
+				opacity: 0.08;
+			}
+
+			&:active:before {
+				opacity: 0.16;
+			}
+
+			&[aria-selected='true'] {
+				color: var(--primary);
+
+				&:after {
+					content: '';
+					position: absolute;
+					height: 2px;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					background: var(--primary);
+				}
+			}
+		}
+	}
+}
