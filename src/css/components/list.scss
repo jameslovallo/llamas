@@ -7,7 +7,7 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding-inline: 16px;
+		padding: 0 16px;
 		height: 48px;
 
 		&--two-line {
@@ -15,7 +15,7 @@
 		}
 
 		&__icon {
-			margin-inline-end: 32px;
+			margin-right: 32px;
 			svg {
 				height: 24px;
 				width: 24px;
@@ -24,7 +24,7 @@
 
 		&__avatar {
 			display: block;
-			margin-inline-end: 16px;
+			margin-right: 16px;
 			border-radius: 50%;
 		}
 

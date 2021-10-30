@@ -1,22 +1,22 @@
-//padding 8 12
-
 .app-bar {
 	--app-bar: var(--primary);
 	--on-app-bar: var(--on-primary);
 	display: flex;
 	align-items: center;
-	padding-inline: 4px 8px;
+	padding-left: 4px;
+	padding-right: 8px;
 	height: 56px;
 	background: var(--app-bar);
 	color: var(--on-app-bar);
 
 	@media (min-width: 768px) {
-		padding-inline: 12px 16px;
+		padding-left: 12px;
+		padding-right: 16px;
 		height: 64px;
 	}
 
 	& > .button:first-child {
-		margin-inline-end: 20px;
+		margin-right: 20px;
 		cursor: pointer;
 
 		@media (min-width: 768px) {
@@ -45,7 +45,7 @@
 
 	&__mobile {
 		> .button:not(.button--text):first-child {
-			margin-inline-start: 8px;
+			margin-left: 8px;
 		}
 	}
 

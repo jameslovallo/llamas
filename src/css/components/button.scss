@@ -6,7 +6,7 @@
 	position: relative;
 	overflow: hidden;
 	border-radius: 4px;
-	padding-inline: 16px;
+	padding: 0 16px;
 	min-height: 36px;
 	color: var(--button);
 	font-family: var(--ui-family);
@@ -41,12 +41,12 @@
 	}
 
 	&__icon {
-		margin-inline-end: 8px;
+		margin-right: 8px;
 
 		.button--trailing-icon & {
 			order: 1;
-			margin-inline-end: 0;
-			margin-inline-start: 8px;
+			margin-right: 0;
+			margin-left: 8px;
 		}
 
 		svg {
@@ -90,7 +90,7 @@
 	}
 
 	&--text {
-		padding-inline: 8px;
+		padding: 0 8px;
 	}
 
 	&--icon {
@@ -103,7 +103,7 @@
 
 		.button__icon {
 			margin: 0;
-			
+
 			svg {
 				height: 24px;
 				width: 24px;
@@ -112,6 +112,6 @@
 	}
 
 	&:not(.button--text) + & {
-		margin-inline-start: 8px;
+		margin-left: 8px;
 	}
 }
