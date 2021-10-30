@@ -13,13 +13,16 @@
 	}
 
 	.grid &--full-width {
-		margin: 0 -16px;
+		margin-left: -16px;
+		margin-right: -16px;
 	
 		@media (min-width: 640px) {
-			margin: 0 -5vw;
+			margin-left: -5vw;
+			margin-right: -5vw;
 		}
 		@media (min-width: 1320px) {
-			margin: 0 calc(-1 * (50vw - 600px));
+			margin-left: calc(-1 * (50vw - 600px));
+			margin-right: calc(-1 * (50vw - 600px));
 		}
 	}
 
