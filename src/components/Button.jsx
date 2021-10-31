@@ -1,7 +1,6 @@
 import link from './utils/link'
 
-export default function Button(props) {
-	const { blok } = props
+export default function Button({ blok }) {
 	const classes = () => {
 		let classes = ['button']
 		blok.style && classes.push('button--' + blok.style)

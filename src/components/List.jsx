@@ -1,8 +1,6 @@
 import link from './utils/link'
 
-export default function List(props) {
-	const { blok } = props
-
+export default function List({ blok }) {
 	return (
 		<ul className="list">
 			{blok.content.map((item) => {

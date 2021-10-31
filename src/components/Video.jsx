@@ -1,11 +1,8 @@
 import responsive from './utils/responsive'
 
-export default function Video(props) {
-	const { blok } = props
-
+export default function Video({ blok }) {
 	return (
 		<div className="video" style={responsive(blok.responsive)}>
-			{blok.autoplay}
 			<video
 				autoPlay={blok.autoplay}
 				controls={blok.controls}

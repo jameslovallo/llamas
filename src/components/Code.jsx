@@ -1,6 +1,4 @@
-export default function Code(props) {
-	const { blok } = props
-
+export default function Code({ blok }) {
 	function script(src) {
 		if (src.length > 0) {
 			return `<script async src="${src}"></script>`

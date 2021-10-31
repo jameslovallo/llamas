@@ -1,13 +1,11 @@
 import Children from './Children'
 import responsive from './utils/responsive'
 
-export default function Card(props) {
-	const { blok } = props
-
+export default function Card({ blok }) {
 	const classes = () => {
 		let classes = ['card']
-		blok.style === "elevated" && classes.push('card--elevated')
-		blok.style === "outlined" && classes.push('card--outlined')
+		blok.style === 'elevated' && classes.push('card--elevated')
+		blok.style === 'outlined' && classes.push('card--outlined')
 		return classes.join(' ').trim()
 	}
 

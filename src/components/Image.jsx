@@ -1,7 +1,6 @@
 import responsive from './utils/responsive'
 
-export default function Image(props) {
-	const { blok } = props
+export default function Image({ blok }) {
 	let img = {}
 	let [hor, vert] = [0, 0]
 
@@ -37,7 +36,7 @@ export default function Image(props) {
 			filter: `brightness(${blok.brightness})
 				contrast(${blok.contrast})
 				saturate(${blok.saturation})
-				grayscale(${blok.grayscale ? 1 : 0})`
+				grayscale(${blok.grayscale ? 1 : 0})`,
 		}
 
 		img.tiny = img.src

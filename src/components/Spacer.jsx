@@ -1,9 +1,9 @@
-export default function Spacer(props) {
+export default function Spacer({ blok }) {
 	return (
 		<div
 			className="spacer"
 			style={{
-				height: props.blok.height + 'px',
+				height: blok.height + 'px',
 			}}
 		/>
 	)

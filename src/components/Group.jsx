@@ -1,8 +1,7 @@
 import Children from './Children'
 import responsive from './utils/responsive'
 
-export default function Group(props) {
-	const { blok } = props
+export default function Group({ blok }) {
 	const styles = {
 		...responsive(blok.responsive),
 		alignSelf: blok.vertical_alignment,

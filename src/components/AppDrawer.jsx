@@ -1,12 +1,10 @@
-import Component from "./Component"
+import Component from './Component'
 
-export default function AppDrawer(props) {
-	const {global} = props
-
+export default function AppDrawer({ global }) {
 	return (
 		<>
-			<div className="app-drawer__scrim" style={{display: "none"}}></div>
-			<aside className="app-drawer" style={{display: "none"}}>
+			<div className="app-drawer__scrim" style={{ display: 'none' }}></div>
+			<aside className="app-drawer" style={{ display: 'none' }}>
 				{global.drawer.map((blok) => (
 					<Component blok={blok} />
 				))}

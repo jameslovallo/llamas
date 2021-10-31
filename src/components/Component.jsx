@@ -26,7 +26,7 @@ const components = {
 	Video: Video,
 }
 
-export default function Component(props) {
-	const C = components[props.blok.component]
-	return <C blok={props.blok} />
+export default function Component({ blok }) {
+	const C = components[blok.component]
+	return <C blok={blok} />
 }

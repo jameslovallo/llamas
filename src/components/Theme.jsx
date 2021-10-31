@@ -1,6 +1,4 @@
-export default function Theme(props) {
-	const { global } = props
-
+export default function Theme({ global }) {
 	const style = `
 		:root {
 			--background: ${global.background};
@@ -16,5 +14,5 @@ export default function Theme(props) {
 
 		${global.custom_css}
 	`
-	return <style dangerouslySetInnerHTML={{ __html: style }}/>
+	return <style dangerouslySetInnerHTML={{ __html: style }} />
 }

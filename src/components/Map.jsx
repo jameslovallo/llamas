@@ -1,5 +1,4 @@
-export default function Map(props) {
-	const blok = props.blok
+export default function Map({ blok }) {
 	const regex = new RegExp('[0-9]+(/|x)[0-9]+')
 	const width = blok.base_width
 	let height = Math.round((blok.base_width * 9) / 16)

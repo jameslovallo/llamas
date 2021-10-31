@@ -1,8 +1,6 @@
 import Component from './Component'
 
-export default function AppBar(props) {
-	const { global } = props
-
+export default function AppBar({ global }) {
 	const appBarColors = {
 		'--app-bar': `var(--${global.app_bar_color})`,
 		'--on-app-bar': `var(--on-${global.app_bar_color})`,

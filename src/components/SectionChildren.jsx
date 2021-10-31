@@ -20,7 +20,7 @@ const components = {
 	TextRich: TextRich,
 }
 
-export default function Children(props) {
-	const C = components[props.blok.component]
-	return <C blok={props.blok} />
+export default function Children({ blok }) {
+	const C = components[blok.component]
+	return <C blok={blok} />
 }
