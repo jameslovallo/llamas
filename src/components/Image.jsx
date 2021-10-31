@@ -9,16 +9,15 @@ export default function Image({ blok }) {
 	}
 
 	if (blok.image.filename) {
-		let asset = blok.image.filename.split('.com')[1]
-		let dimensions = asset.split('/')[3]
+		let dimensions = blok.image.filename.split('/')[5]
 
-		img.src = `https://img2.storyblok.com${
+		img.src = `${blok.image.filename}/m${
 			blok.fit === 'contain' ? '/fit-in' : ''
 		}/widthxheight${
 			blok.fit === 'smart' ? '/smart' : ''
-		}/filters:format(webp):quality(80):fill(transparent):focal(${
+		}/filters:quality(80):fill(transparent):focal(${
 			blok.image.focus
-		})${asset}`
+		})`
 
 		img.width = dimensions.split('x')[0]
 		img.height = dimensions.split('x')[1]
