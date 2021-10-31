@@ -6,6 +6,8 @@ const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?token=${key}&cv=${cacheBuster}`)
 	.then(response => response.json());
+  
+const tabs = JSON.stringify(story.content.body).includes(`"component":"Tabs"`)
 ---
 <DefaultLayout
   title={story.content.SEO.title || story.name}
@@ -14,7 +16,5 @@ const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?tok
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
-  {JSON.stringify(story.content.body).includes(`"component":"Tabs"`) === true &&
-    <script src="/js/tabs.js"></script>
-  }
+  {tabs && <script src={Astro.resolve('../js/tabs.min.js')}></script>}
 </DefaultLayout>
