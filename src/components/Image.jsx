@@ -39,8 +39,6 @@ export default function Image({ blok }) {
 			.replace('width', Math.floor(img.width / 100) * 3)
 			.replace('height', Math.floor(img.height / 100) * 3)
 
-		console.log(img.tiny)
-
 		return (
 			<div className="image loading" style={img.styles}>
 				<img
