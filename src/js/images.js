@@ -6,6 +6,7 @@ imgs.forEach(img => {
 	let height = Math.round(img.clientHeight * devicePixelRatio)
 
 	img.src = src.replace('width', width).replace('height', height)
+
 	img.addEventListener('load', () => {
 		img.parentElement.classList.remove('loading')
 	})

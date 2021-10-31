@@ -12,7 +12,8 @@
 	"devDependencies": {
 		"@astrojs/renderer-react": "^0.2.2",
 		"astro": "^0.20.12",
-		"storyblok-rich-text-react-renderer": "^2.3.1"
+		"storyblok-rich-text-react-renderer": "^2.3.1",
+		"tua-body-scroll-lock": "^1.2.1"
 	},
 	"dependencies": {
 		"rn-fetch-blob": "^0.12.0"

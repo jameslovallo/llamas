@@ -6,7 +6,7 @@ const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?token=${key}&cv=${cacheBuster}`)
 	.then(response => response.json());
-  
+
 const tabs = JSON.stringify(story.content.body).includes(`"component":"Tabs"`)
 ---
 <DefaultLayout
@@ -16,5 +16,5 @@ const tabs = JSON.stringify(story.content.body).includes(`"component":"Tabs"`)
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
-  {tabs && <script src={Astro.resolve('../js/tabs.min.js')}></script>}
+  {tabs && <script src={Astro.resolve('../js/tabs.js')}></script>}
 </DefaultLayout>

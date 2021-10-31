@@ -29,5 +29,5 @@ const tabs = JSON.stringify(story.content.body).includes(`"component":"Tabs"`)
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
-  {tabs && <script src={Astro.resolve('../js/tabs.min.js')}></script>}
+  {tabs && <script src={Astro.resolve('../js/tabs.js')}></script>}
 </DefaultLayout>

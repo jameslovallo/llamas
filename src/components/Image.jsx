@@ -14,7 +14,7 @@ export default function Image({ blok }) {
 		const smart = blok.fit === 'smart' ? '/smart' : ''
 		const focus = blok.image.focus ? `:focal${blok.image.focus})` : ''
 
-		img.src = `${blok.image.filename}/m${contain}/widthxheight${smart}/filters:quality(80):fill(transparent):focal(${focus})`
+		img.src = `${blok.image.filename}/m${contain}/widthxheight${smart}/filters:quality(80):fill(transparent)${focus}`
 
 		img.width = dimensions.split('x')[0]
 		img.height = dimensions.split('x')[1]
@@ -36,8 +36,10 @@ export default function Image({ blok }) {
 		}
 
 		img.tiny = img.src
-			.replace('width', img.hor * 2)
-			.replace('height', img.vert * 2)
+			.replace('width', Math.floor(img.width / 100) * 3)
+			.replace('height', Math.floor(img.height / 100) * 3)
+
+		console.log(img.tiny)
 
 		return (
 			<div className="image loading" style={img.styles}>
