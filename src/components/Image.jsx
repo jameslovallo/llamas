@@ -9,15 +9,12 @@ export default function Image({ blok }) {
 	}
 
 	if (blok.image.filename) {
-		let dimensions = blok.image.filename.split('/')[5]
+		const dimensions = blok.image.filename.split('/')[5]
+		const contain = blok.fit === 'contain' ? '/fit-in' : ''
+		const smart = blok.fit === 'smart' ? '/smart' : ''
+		const focus = blok.image.focus ? `:focal${blok.image.focus})` : ''
 
-		img.src = `${blok.image.filename}/m${
-			blok.fit === 'contain' ? '/fit-in' : ''
-		}/widthxheight${
-			blok.fit === 'smart' ? '/smart' : ''
-		}/filters:quality(80):fill(transparent):focal(${
-			blok.image.focus
-		})`
+		img.src = `${blok.image.filename}/m${contain}/widthxheight${smart}/filters:quality(80):fill(transparent):focal(${focus})`
 
 		img.width = dimensions.split('x')[0]
 		img.height = dimensions.split('x')[1]
