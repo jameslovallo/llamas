@@ -22,11 +22,11 @@ h6 {
 
 h1,
 .h1 {
-	font-size: var(--mdc-typography-headline1-font-size, 2.5rem);
-	line-height: var(--mdc-typography-headline1-line-height, 1.2);
-	font-weight: var(--mdc-typography-headline1-font-weight, 400);
-	letter-spacing: var(--mdc-typography-headline1-letter-spacing, 0);
-	text-transform: var(--mdc-typography-headline1-text-transform, inherit);
+	font-size: var(--h1-font-size, 2.5rem);
+	line-height: var(--h1-line-height, 1.2);
+	font-weight: var(--h1-font-weight, 400);
+	letter-spacing: var(--h1-letter-spacing, 0);
+	text-transform: var(--h1-text-transform, inherit);
 }
 
 @media screen and (min-width: 521px) {
@@ -45,13 +45,10 @@ h1,
 
 h2,
 .h2 {
-	font-size: var(--mdc-typography-headline2-font-size, 1.5rem);
-	line-height: var(--mdc-typography-headline2-line-height, 1.2);
-	font-weight: var(--mdc-typography-headline2-font-weight, 400);
-	letter-spacing: var(
-		--mdc-typography-headline2-letter-spacing,
-		-0.0083333333em
-	);
+	font-size: var(--h2-font-size, 1.5rem);
+	line-height: var(--h2-line-height, 1.2);
+	font-weight: var(--h2-font-weight, 400);
+	letter-spacing: var(--h2-letter-spacing, -0.0083333333em);
 }
 
 @media screen and (min-width: 521px) {
@@ -74,10 +71,10 @@ h2:focus {
 
 h3,
 .h3 {
-	font-size: var(--mdc-typography-headline3-font-size, 1.375rem);
-	line-height: var(--mdc-typography-headline3-line-height, 1.2);
-	font-weight: var(--mdc-typography-headline3-font-weight, 400);
-	letter-spacing: var(--mdc-typography-headline3-letter-spacing, normal);
+	font-size: var(--h3-font-size, 1.375rem);
+	line-height: var(--h3-line-height, 1.2);
+	font-weight: var(--h3-font-weight, 400);
+	letter-spacing: var(--h3-letter-spacing, normal);
 }
 
 @media screen and (min-width: 521px) {
@@ -96,27 +93,29 @@ h3,
 
 h4,
 .h4 {
-	font-size: var(--mdc-typography-headline4-font-size, 1.25rem);
-	line-height: var(--mdc-typography-headline4-line-height, 1.625rem);
-	font-weight: var(--mdc-typography-headline4-font-weight, 400);
-	letter-spacing: var(
-		--mdc-typography-headline4-letter-spacing,
-		0.0073529412em
-	);
+	font-size: var(--h4-font-size, 1.25rem);
+	line-height: var(--h4-line-height, 1.625rem);
+	font-weight: var(--h4-font-weight, 400);
+	letter-spacing: var(--h4-letter-spacing, 0.0073529412em);
 }
 
 h5,
 .h5 {
-	font-size: var(--mdc-typography-headline5-font-size, 1.125rem);
-	line-height: var(--mdc-typography-headline5-line-height, 1.333);
-	font-weight: var(--mdc-typography-headline5-font-weight, 400);
-	letter-spacing: var(--mdc-typography-headline5-letter-spacing, normal);
+	font-size: var(--h5-font-size, 1.125rem);
+	line-height: var(--h5-line-height, 1.333);
+	font-weight: var(--h5-font-weight, 400);
+	letter-spacing: var(--h5-letter-spacing, normal);
 }
 
 h6,
-.h6 {
-	font-size: var(--mdc-typography-headline6-font-size, 1rem);
-	line-height: var(--mdc-typography-headline6-line-height, 2rem);
-	font-weight: var(--mdc-typography-headline6-font-weight, 500);
-	letter-spacing: var(--mdc-typography-headline6-letter-spacing, 0.0125em);
+.h6,
+.small {
+	font-size: var(--h6-font-size, 1rem);
+	line-height: var(--h6-line-height, 2rem);
+	font-weight: var(--h6-font-weight, 500);
+	letter-spacing: var(--h6-letter-spacing, 0.0125em);
+}
+
+.small {
+	font-size: 14px;
 }

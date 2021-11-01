@@ -6,6 +6,7 @@ export default function List({ blok }) {
 			{blok.content.map((item) => {
 				const itemClasses = () => {
 					let classes = ['list__item']
+					blok.icon_style === 'avatar' && classes.push('list__item--avatar-icons')
 					item.secondary_text && classes.push('list__item--two-line')
 					return classes.join(' ')
 				}
@@ -27,10 +28,7 @@ export default function List({ blok }) {
 						{item.avatar.filename && (
 							<img
 								aria-hidden="true"
-								src={item.avatar.filename.replace(
-									'https://a.storyblok.com/',
-									'https://img2.storyblok.com/40x40/smart/'
-								)}
+								src={item.avatar.filename + '/m/60x60/smart/'}
 								className="list__item__avatar"
 							/>
 						)}

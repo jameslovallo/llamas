@@ -14,11 +14,23 @@
 			height: 72px;
 		}
 
+		&--avatar-icons {
+			height: 56px;
+		}
+
 		&__icon {
 			margin-right: 32px;
 			svg {
 				height: 24px;
 				width: 24px;
+			}
+
+			.list__item--avatar-icons & {
+				padding: 8px;
+				margin-right: 16px;
+				background: var(--primary);
+				color: var(--on-primary);
+				border-radius: 50%;
 			}
 		}
 
@@ -26,6 +38,8 @@
 			display: block;
 			margin-right: 16px;
 			border-radius: 50%;
+			height: 40px;
+			width: 40px;
 		}
 
 		a {
