@@ -1,6 +1,7 @@
 import Button from './Button'
 import Card from './Card'
 import Code from './Code'
+import Form from './Form'
 import Group from './Group'
 import Image from './Image'
 import List from './List'
@@ -15,6 +16,7 @@ const components = {
 	Button: Button,
 	Card: Card,
 	Code: Code,
+	Form: Form,
 	Group: Group,
 	Image: Image,
 	List: List,

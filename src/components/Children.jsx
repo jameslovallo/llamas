@@ -1,5 +1,6 @@
 import Button from './Button'
 import Code from './Code'
+import Form from './Form'
 import Image from './Image'
 import List from './List'
 import Map from './Map'
@@ -10,6 +11,7 @@ import Video from './Video'
 const components = {
 	Button: Button,
 	Code: Code,
+	Form: Form,
 	Image: Image,
 	List: List,
 	Map: Map,

@@ -44,10 +44,17 @@ const global = story.content
     <!-- Activate the Drawer -->
     <script type="module" src={Astro.resolve('../js/drawer.js')}></script>
 
+    <!-- Misc -->
     <script>
       if (window.location.pathname === "/settings") {
         window.location.replace("http://localhost:3000")
       }
+
+      document.querySelectorAll("select").forEach(el => {
+        el.addEventListener("change", () => {
+          el.dataset.active = true
+        })
+      })
     </script>
 
     <!-- Deferred Crap like Fonts -->
