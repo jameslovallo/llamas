@@ -9,8 +9,13 @@ export default function Card({ blok }) {
 		return classes.join(' ').trim()
 	}
 
+	const styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+	}
+
 	return (
-		<div className={classes()} style={responsive(blok.responsive)}>
+		<div className={classes()} style={styles}>
 			{blok.media.map((media) => (
 				<Children blok={media} />
 			))}

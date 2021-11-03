@@ -1,5 +1,5 @@
 export default function Theme({ global }) {
-	const style = `
+	const styles = `
 		:root {
 			--background: ${global.background};
 			--on-background: ${global.on_background};
@@ -14,5 +14,5 @@ export default function Theme({ global }) {
 
 		${global.custom_css}
 	`
-	return <style dangerouslySetInnerHTML={{ __html: style }} />
+	return <style dangerouslySetInnerHTML={{ __html: styles }} />
 }

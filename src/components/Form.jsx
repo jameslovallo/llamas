@@ -6,6 +6,7 @@ export default function Form({ blok }) {
 	return (
 		<form
 			data-netlify="true"
+			data-netlify-recaptcha="true"
 			method="POST"
 			name={blok.name}
 			className="form grid"
@@ -16,6 +17,7 @@ export default function Form({ blok }) {
 			})}
 			<div className="form__actions">
 				<Button blok={blok.submit_button[0]} submit="true" />
+				<div data-netlify-recaptcha="true"></div>
 			</div>
 		</form>
 	)

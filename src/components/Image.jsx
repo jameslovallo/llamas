@@ -27,6 +27,7 @@ export default function Image({ blok }) {
 
 		img.styles = {
 			...responsive(blok.responsive),
+			alignSelf: blok.vertical_alignment,
 			paddingTop: blok.fixed_width ? undefined : padding,
 			width: blok.fixed_width,
 			filter: `brightness(${blok.brightness})

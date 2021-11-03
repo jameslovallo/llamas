@@ -1,4 +1,5 @@
 import Children from './Children'
+import responsive from './utils/responsive'
 
 export default function Tabs({ blok }) {
 	const classes = () => {
@@ -8,8 +9,13 @@ export default function Tabs({ blok }) {
 		return classes.join(' ').trim()
 	}
 
+	const styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+	}
+
 	return (
-		<div className={classes()}>
+		<div className={classes()} style={styles}>
 			<div role="tablist" aria-label="Entertainment">
 				{blok.content.map((content, n) => (
 					<button
