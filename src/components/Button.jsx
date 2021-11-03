@@ -9,12 +9,15 @@ export default function Button({ blok, submit }) {
 		return classes.join(' ').trim()
 	}
 
-	const El = submit ? "button" : "a"
-
+	const El = submit ? 'button' : 'a'
 	const href = blok.link ? link(blok.link) : undefined
 
 	return (
-		<El className={classes()} {...(href ? { href: href } : {})} {...(submit ? { type: "submit" } : {})}>
+		<El
+			className={classes()}
+			{...(href ? { href: href } : {})}
+			{...(submit ? { type: 'submit' } : {})}
+		>
 			{blok.icon && (
 				<span
 					aria-hidden="true"

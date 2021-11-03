@@ -1,3 +1,8 @@
+.form__field > *,
+.material-input {
+	width: 100%;
+}
+
 .material-input {
 	--valid: green;
 	--invalid: red;
@@ -5,17 +10,18 @@
 	--border-width: 1px; // don't modify
 	--border-color: currentColor;
 	--border-radius: 4px;
-	width: 300px;
 	height: 48px;
 	max-height: 48px;
 	min-height: 48px;
 	position: relative;
 	input,
-	select {
+	select,
+	textarea {
 		appearance: none;
 		display: block;
 		width: calc(100% - var(--padding) * 2);
 		height: 48px;
+		width: 100%;
 		border-radius: var(--border-radius);
 		border: none;
 		font-size: 16px;
@@ -30,7 +36,7 @@
 		width: 100%;
 		color: inherit;
 		~ i {
-			content: "";
+			content: '';
 			display: block;
 			height: 6px;
 			width: 6px;
@@ -57,7 +63,7 @@
 		pointer-events: none;
 		&:before,
 		&:after {
-			content: "";
+			content: '';
 			width: var(--padding);
 			border: var(--border-width) solid var(--border-color);
 		}
@@ -85,18 +91,57 @@
 	}
 	input:focus + &-outline,
 	input:not(:placeholder-shown) + &-outline,
+	textarea:focus + &-outline,
+	textarea:not(:placeholder-shown) + &-outline,
 	select:focus + &-outline,
-	select[data-active] + &-outline {
-		--border-width: 2px;
+	select[data-active] + &-outline,
+	select[data-active]:focus + &-outline {
 		--border-color: var(--primary);
 		label {
 			border-top: var(--border-width) solid transparent;
 			font-size: 12px;
-			padding-inline: 0.5em;
+			padding-left: 0.5em;
+			padding-right: 0.5em;
 			span {
 				position: relative;
 				transform: translatey(-24px);
 			}
+		}
+	}
+	input:focus + &-outline,
+	textarea:focus + &-outline,
+	select:focus + &-outline, 
+	select[data-active]:focus + &-outline {
+		--border-width: 2px;
+		label {
+			color: var(--primary);
+		}
+	}
+	&--textarea {
+		display: grid;
+		height: auto;
+		max-height: none;
+		&:after {
+			content: attr(data-replicated-value) ' ';
+			white-space: pre-wrap;
+			visibility: hidden;
+		}
+		label {
+			align-items: flex-start;
+			padding-top: 14px;
+		}
+		textarea {
+			resize: none;
+			min-height: 7.25em;
+			max-height: none;
+			height: auto;
+			overflow-y: auto;
+		}
+		&:after,
+		textarea {
+			font: inherit;
+			grid-area: 1 / 1 / 2 / 2;
+			padding: 14px var(--padding);
 		}
 	}
 	select[data-active] + &-outline {

@@ -1,9 +1,12 @@
+import responsive from './utils/responsive'
+
 export default function FormField({ blok }) {
+	const El = blok.type === 'textarea' ? 'textarea' : 'input'
 	const Field = () => {
-		if (['text', 'tel', 'email'].includes(blok.type)) {
+		if (['text', 'tel', 'email', 'textarea'].includes(blok.type)) {
 			return (
-				<div class="material-input">
-					<input
+				<div class={`material-input material-input--${blok.type}`}>
+					<El
 						id={'b-' + blok._uid}
 						name={blok.label}
 						type="text"
@@ -60,5 +63,9 @@ export default function FormField({ blok }) {
 			)
 		}
 	}
-	return Field()
+	return (
+		<div class="form__field" style={responsive(blok.responsive)}>
+			{Field()}
+		</div>
+	)
 }

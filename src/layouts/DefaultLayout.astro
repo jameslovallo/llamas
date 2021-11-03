@@ -8,7 +8,6 @@ import Theme from '../components/Theme'
 const { title, description } = Astro.props;
 const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
-const dev = process.env.npm_lifecycle_script !== 'astro dev'
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
   .then(response => response.json());
 const global = story.content
@@ -44,17 +43,11 @@ const global = story.content
     <!-- Activate the Drawer -->
     <script type="module" src={Astro.resolve('../js/drawer.js')}></script>
 
-    <!-- Misc -->
+    <!-- Settings Redirect -->
     <script>
       if (window.location.pathname === "/settings") {
         window.location.replace("http://localhost:3000")
       }
-
-      document.querySelectorAll("select").forEach(el => {
-        el.addEventListener("change", () => {
-          el.dataset.active = true
-        })
-      })
     </script>
 
     <!-- Deferred Crap like Fonts -->

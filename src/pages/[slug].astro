@@ -20,7 +20,16 @@ export async function getStaticPaths() {
 }
 
 const { story } = Astro.props;
-const tabs = JSON.stringify(story.content.body).includes(`"component":"Tabs"`)
+
+const clientScript = (component) => {
+  const body = JSON.stringify(story.content.body)
+  const c = component.toLowerCase()
+  if (body.includes(`"component":"${component}"`)) {
+    return (
+      <script src={Astro.resolve(`../js/${c}.js`)} defer type="module"></script>
+    )
+  }
+}
 ---
 <DefaultLayout 
   title={story.content.SEO.title || story.name}
@@ -29,5 +38,6 @@ const tabs = JSON.stringify(story.content.body).includes(`"component":"Tabs"`)
   {story.content.body.map(child => {
     return <Component blok={child}/>
   })}
-  {tabs && <script src={Astro.resolve('../js/tabs.js')}></script>}
+  {clientScript('Form')}
+  {clientScript('Tabs')}
 </DefaultLayout>
