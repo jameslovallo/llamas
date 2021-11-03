@@ -1,6 +1,6 @@
 import link from './utils/link'
 
-export default function Button({ blok }) {
+export default function Button({ blok, submit }) {
 	const classes = () => {
 		let classes = ['button']
 		blok.style && classes.push('button--' + blok.style)
@@ -9,18 +9,20 @@ export default function Button({ blok }) {
 		return classes.join(' ').trim()
 	}
 
+	const El = submit ? "button" : "a"
+
 	const href = blok.link ? link(blok.link) : undefined
 
 	return (
-		<a className={classes()} {...(href ? { href: href } : {})}>
+		<El className={classes()} {...(href ? { href: href } : {})} {...(submit ? { type: "submit" } : {})}>
 			{blok.icon && (
-				<div
+				<span
 					aria-hidden="true"
 					className="button__icon"
 					dangerouslySetInnerHTML={{ __html: blok.icon }}
 				/>
 			)}
-			{blok.label && <div className="button__label">{blok.label}</div>}
-		</a>
+			{blok.label && <span className="button__label">{blok.label}</span>}
+		</El>
 	)
 }
