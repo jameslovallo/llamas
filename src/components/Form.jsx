@@ -15,9 +15,9 @@ export default function Form({ blok }) {
 			{blok.content.map((item) => {
 				return <FormField blok={item} />
 			})}
+			<div data-netlify-recaptcha="true"></div>
 			<div className="form__actions">
 				<Button blok={blok.submit_button[0]} submit="true" />
-				<div data-netlify-recaptcha="true"></div>
 			</div>
 		</form>
 	)
