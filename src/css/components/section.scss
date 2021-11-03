@@ -42,7 +42,7 @@
 	}
 
 	&--swoop {
-		--swoop-curve: 16vw;
+		--swoop-curve: 15vw;
 		position: relative;
 		margin-top: 5vw;
 		margin-bottom: 5vw;
@@ -57,6 +57,7 @@
 		&:before,
 		&:after {
 			content: "";
+			display: flex;
 			position: absolute;
 			top: calc(var(--swoop-curve) * -1);
 			right: 0;
