@@ -27,11 +27,7 @@ const global = story.content
     <AppDrawer global={ global }/>
     <AppBar global={ global }/>
     
-    <main>
-      <div class="grid">
-        <slot/>
-      </div>
-    </main>
+    <slot/>
 
     {global.footer.map(content => (
       <Component blok={ content }/>

@@ -9,7 +9,7 @@ export default function FormField({ blok }) {
 					<El
 						id={'b-' + blok._uid}
 						name={blok.label}
-						type="text"
+						type={blok.type}
 						placeholder=" "
 						required={blok.required}
 					/>

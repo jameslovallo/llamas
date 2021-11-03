@@ -148,7 +148,8 @@
 		--border-color: currentColor;
 		--border-width: 1px;
 	}
-	input:not(:focus):not(:placeholder-shown):valid + .material-input-outline {
+	input:not(:focus):not(:placeholder-shown):valid + .material-input-outline,
+	textarea:not(:focus):not(:placeholder-shown):valid + .material-input-outline {
 		--border-color: var(--valid);
 		color: var(--valid);
 	}
