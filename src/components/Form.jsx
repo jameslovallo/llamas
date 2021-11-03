@@ -5,7 +5,7 @@ import responsive from './utils/responsive'
 export default function Form({ blok }) {
 	return (
 		<form
-			netlify
+			data-netlify="true"
 			method="POST"
 			name={blok.name}
 			className="form grid"
