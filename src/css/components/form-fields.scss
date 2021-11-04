@@ -1,3 +1,13 @@
+.form__recaptcha {
+	padding: 1em;
+	border: 1px solid currentColor;
+	border-radius: 4px;
+	width: 300px;
+	&:empty:before {
+		content: "🤖 I'm not a robot"
+	}
+}
+
 .form__field > *,
 .material-input {
 	width: 100%;
