@@ -67,15 +67,26 @@
 			}
 		}
 
+		&__text-wrapper {
+			overflow: hidden;
+		}
+
 		&__text {
 			letter-spacing: 0.15px;
 			line-height: 24px;
 		}
+
 		&__secondary__text {
 			font-size: 14px;
 			letter-spacing: 0.25px;
 			line-height: normal;
 			opacity: 0.6;
+		}
+		&__text,
+		&__secondary__text {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
 		}
 	}
 

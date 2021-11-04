@@ -1,12 +1,19 @@
 import link from './utils/link'
+import responsive from './utils/responsive'
 
 export default function List({ blok }) {
+	const styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+	}
+
 	return (
-		<ul className="list">
+		<ul className="list" style={styles}>
 			{blok.content.map((item) => {
 				const itemClasses = () => {
 					let classes = ['list__item']
-					blok.icon_style === 'avatar' && classes.push('list__item--avatar-icons')
+					blok.icon_style === 'avatar' &&
+						classes.push('list__item--avatar-icons')
 					item.secondary_text && classes.push('list__item--two-line')
 					return classes.join(' ')
 				}
@@ -32,7 +39,10 @@ export default function List({ blok }) {
 								className="list__item__avatar"
 							/>
 						)}
-						<El {...(href ? { href: href } : {})}>
+						<El
+							{...(href ? { href: href } : {})}
+							className="list__item__text-wrapper"
+						>
 							<div className="list__item__text">{item.text}</div>
 							<div className="list__item__secondary__text">
 								{item.secondary_text}
