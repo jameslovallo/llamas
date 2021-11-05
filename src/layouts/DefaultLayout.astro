@@ -1,15 +1,15 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import AppBar from '../components/AppBar';
-import AppDrawer from '../components/AppDrawer';
+import BaseHead from '../components/BaseHead.astro'
+import AppBar from '../components/AppBar'
+import AppDrawer from '../components/AppDrawer'
 import Component from '../components/Component'
 import Theme from '../components/Theme'
 
-const { story } = Astro.props;
-const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
+const { story } = Astro.props
+const key = process.env.TOKEN
 const cacheBuster = new Date().getMilliseconds()
 const settings = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
-  .then(response => response.json());
+  .then(response => response.json())
 const global = settings.story.content
 ---
 <html lang="en">

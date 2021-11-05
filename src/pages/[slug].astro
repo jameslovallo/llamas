@@ -3,23 +3,23 @@ import DefaultLayout from "../layouts/DefaultLayout.astro"
 import Component from "../components/Component.jsx"
 
 export async function getStaticPaths() {
-  const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
+  const key = process.env.TOKEN
   const cacheBuster = new Date().getMilliseconds()
   const dev = process.env.npm_lifecycle_script !== 'astro dev'
   const home = dev ? 'home,' : ''
 
   const { stories } = await fetch(`https://api.storyblok.com/v2/cdn/stories/?excluding_slugs=${home}settings&token=${key}&cv=${cacheBuster}`)
-	  .then(response => response.json());
+	  .then(response => response.json())
 
   return stories.map((story) => {
     return {
       params: { slug: story.slug },
       props: { story }
-    };
-  });
+    }
+  })
 }
 
-const { story } = Astro.props;
+const { story } = Astro.props
 
 const clientScript = (component, module = false) => {
   const body = JSON.stringify(story.content.body)
