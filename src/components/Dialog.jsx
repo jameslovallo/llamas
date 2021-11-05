@@ -12,22 +12,22 @@ export default function Dialog({ blok }) {
 			<div
 				className="modal__trigger"
 				style={styles}
-				data-micromodal-trigger="modal-1"
+				data-micromodal-trigger={`modal-${blok._uid}`}
 				title={blok.trigger_title}
 				aria-label={blok.trigger_title}
 			>
 				<SectionChildren blok={blok.trigger[0]} />
 			</div>
-			<div className="modal" id="modal-1" aria-hidden="true">
+			<div className="modal" id={`modal-${blok._uid}`} aria-hidden="true">
 				<div className="modal__scrim" tabindex="-1" data-micromodal-close>
 					<div
 						className="modal__dialog"
 						role="dialog"
 						aria-modal="true"
-						aria-labelledby={`b-${blok._uid}`}
+						aria-labelledby={`b-${blok._uid}-label`}
 					>
 						<header className="modal__dialog__header">
-							<h2 id={`b-${blok._uid}`} className="h6">
+							<h2 id={`b-${blok._uid}-label`} className="h6">
 								{blok.heading}
 							</h2>
 						</header>

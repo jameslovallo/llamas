@@ -1,6 +1,6 @@
-const imgs = document.querySelectorAll(".image img")
+const imgs = document.querySelectorAll('.image.loading img')
 
-imgs.forEach(img => {
+imgs.forEach((img) => {
 	let src = img.dataset.src
 	let width = Math.round(img.clientWidth * devicePixelRatio)
 	let height = Math.round(img.clientHeight * devicePixelRatio)

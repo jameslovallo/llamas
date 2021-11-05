@@ -8,7 +8,17 @@ export default function Image({ blok }) {
 		;[hor, vert] = blok.aspect_ratio.split('/')
 	}
 
-	if (blok.image.filename) {
+	let styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+		width: blok.fixed_width,
+		filter: `brightness(${blok.brightness})
+			contrast(${blok.contrast})
+			saturate(${blok.saturation})
+			grayscale(${blok.grayscale ? 1 : 0})`,
+	}
+
+	if (blok.image.filename && !blok.image?.filename.endsWith('.svg')) {
 		const dimensions = blok.image.filename.split('/')[5]
 		const contain = blok.fit === 'contain' ? '/fit-in' : ''
 		const smart = blok.fit === 'smart' ? '/smart' : ''
@@ -24,24 +34,14 @@ export default function Image({ blok }) {
 		}
 
 		const padding = Math.round((img.height / img.width) * 100) + '%'
-
-		img.styles = {
-			...responsive(blok.responsive),
-			alignSelf: blok.vertical_alignment,
-			paddingTop: blok.fixed_width ? undefined : padding,
-			width: blok.fixed_width,
-			filter: `brightness(${blok.brightness})
-				contrast(${blok.contrast})
-				saturate(${blok.saturation})
-				grayscale(${blok.grayscale ? 1 : 0})`,
-		}
+		styles.paddingTop = blok.fixed_width ? undefined : padding
 
 		img.tiny = img.src
 			.replace('width', Math.floor(img.width / 100) * 3)
 			.replace('height', Math.floor(img.height / 100) * 3)
 
 		return (
-			<div className="image loading" style={img.styles}>
+			<div className="image loading" style={styles}>
 				<img
 					src={img.tiny || ''}
 					data-src={img.src}
@@ -49,6 +49,15 @@ export default function Image({ blok }) {
 					width={img.width}
 					height={img.height}
 				/>
+			</div>
+		)
+	} else {
+		styles.paddingTop = (vert / hor) * 100 + '%'
+		const fit = blok.fit === 'cover' ? 'cover' : 'contain'
+
+		return (
+			<div className="image" style={styles}>
+				<img src={blok.image.filename} style={{ objectFit: fit }} />
 			</div>
 		)
 	}
