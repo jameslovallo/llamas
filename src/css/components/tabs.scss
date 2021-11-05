@@ -59,11 +59,11 @@
 
 			&:hover:before,
 			&:focus:before {
-				opacity: 0.08;
+				opacity: var(--hover-opacity);
 			}
 
 			&:active:before {
-				opacity: 0.16;
+				opacity: var(--active-opacity);
 			}
 
 			&[aria-selected='true'] {

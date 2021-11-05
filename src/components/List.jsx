@@ -18,10 +18,8 @@ export default function List({ blok }) {
 					return classes.join(' ')
 				}
 
-				const El =
-					item.link.url.length || item.link.cached_url.length ? 'a' : 'div'
-
 				const href = item.link ? link(item.link) : undefined
+				const El = href ? 'a' : 'div'
 
 				return (
 					<li className={itemClasses()}>

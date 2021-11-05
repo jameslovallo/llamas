@@ -1,7 +1,7 @@
 export default function Code({ blok }) {
 	function script(src) {
 		if (src.length > 0) {
-			return `<script async src="${src}"></script>`
+			return `<script src="${src}"></script>`
 		} else return ''
 	}
 
@@ -20,7 +20,7 @@ export default function Code({ blok }) {
 		${link(blok.external_css_3)}
 		${blok.html}
 		<style>${blok.css}</style>
-		<script async type="module">${blok.javascript}</script>
+		<script defer type="module">${blok.javascript}</script>
 	`
 
 	return (

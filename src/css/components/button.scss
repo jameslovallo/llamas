@@ -29,11 +29,11 @@
 	}
 
 	&:hover:before {
-		opacity: 0.08;
+		opacity: var(--hover-opacity);
 	}
 
 	&:active:before {
-		opacity: 0.16;
+		opacity: var(--active-opacity);
 	}
 
 	&__label {
@@ -76,7 +76,7 @@
 		}
 
 		&:hover:before {
-			opacity: 0.16;
+			opacity: var(--active-opacity);
 		}
 
 		&:active:before {
