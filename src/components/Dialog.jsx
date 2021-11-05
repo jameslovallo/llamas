@@ -8,7 +8,7 @@ export default function Dialog({ blok }) {
 	}
 
 	return (
-		<>
+		<div className=“dialog”>
 			<div
 				className="modal__trigger"
 				style={styles}
@@ -51,6 +51,6 @@ export default function Dialog({ blok }) {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }

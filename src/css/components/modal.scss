@@ -2,7 +2,7 @@
 	display: none;
 
 	&.is-open {
-		display: contents;
+		display: block;
 	}
 
 	&__trigger {
