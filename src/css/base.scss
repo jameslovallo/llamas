@@ -9,6 +9,7 @@
 @import './components/form-fieldset.scss';
 @import './components/image.scss';
 @import './components/list.scss';
+@import './components/modal.scss';
 @import './components/page.scss';
 @import './components/section.scss';
 @import './components/spacer.scss';
@@ -35,6 +36,10 @@ svg {
 button {
 	background: none;
 	border: none;
-	padding: none;
+	padding: 0;
 	cursor: pointer;
+}
+
+.group {
+	position: relative;
 }

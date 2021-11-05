@@ -1,4 +1,5 @@
 import Button from './Button'
+import Card from './Card'
 import Code from './Code'
 import Form from './Form'
 import Group from './Group'
@@ -11,6 +12,7 @@ import TextRich from './TextRich'
 
 const components = {
 	Button: Button,
+	Card: Card,
 	Code: Code,
 	Form: Form,
 	Group: Group,

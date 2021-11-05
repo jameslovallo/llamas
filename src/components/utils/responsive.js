@@ -1,9 +1,11 @@
 export default function responsive(obj) {
-	return (responsive = {
-		'--xs': obj.xsmall,
-		'--sm': obj.small || obj.xsmall,
-		'--md': obj.medium || obj.small || obj.xsmall,
-		'--lg': obj.large || obj.medium || obj.small || obj.xsmall,
-		'--xl': obj.xlarge || obj.large || obj.medium || obj.small || obj.xsmall,
-	})
+	if (obj) {
+		return (responsive = {
+			'--xs': obj.xsmall,
+			'--sm': obj.small || obj.xsmall,
+			'--md': obj.medium || obj.small || obj.xsmall,
+			'--lg': obj.large || obj.medium || obj.small || obj.xsmall,
+			'--xl': obj.xlarge || obj.large || obj.medium || obj.small || obj.xsmall,
+		})
+	}
 }

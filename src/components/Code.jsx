@@ -1,4 +1,11 @@
+import responsive from './utils/responsive'
+
 export default function Code({ blok }) {
+	const styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+	}
+
 	function script(src) {
 		if (src.length > 0) {
 			return `<script src="${src}"></script>`
@@ -24,7 +31,7 @@ export default function Code({ blok }) {
 	`
 
 	return (
-		<div class="code">
+		<div class="code" style={styles}>
 			<div
 				className="html"
 				dangerouslySetInnerHTML={{ __html: template }}
