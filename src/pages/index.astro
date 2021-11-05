@@ -18,14 +18,11 @@ const clientScript = (component, module = false) => {
   }
 }
 ---
-<DefaultLayout
-  title={story.content.SEO.title || story.name}
-  description={story.content.SEO.description || ""}
->
+<DefaultLayout story={ story }>
   <main>
     <div class="grid">
       {story.content.body.map(child => {
-        return <Component blok={child}/>
+        return <Component blok={child} />
       })}
     </div>
   </main>

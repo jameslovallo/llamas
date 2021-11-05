@@ -1,29 +1,43 @@
 ---
-const { title, description } = Astro.props;
+const { global, story } = Astro.props;
+
+const globalTitle = global.SEO.title
+const globalDescription = global.SEO.description
+const globalImage = global.SEO_IMAGE.filename
+const storyTitle = story.content.SEO.title || story.name
+const storyDescription = story.content.SEO.description
+const storyImage = story.content.SEO_IMAGE.filename
+
+const title = storyTitle && globalTitle 
+	? `${storyTitle} | ${globalTitle}`
+	: globalTitle || "No title!"
+const description = storyDescription || globalDescription
+const image = storyImage || globalImage
+const favicon = global.favicon.filename || ""
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" href={favicon} />
 
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{ title }</title>
+<meta name="title" content={ title } />
+<meta name="description" content={ description } />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content="https://astro.build/social.jpg?v=1" />
+<meta property="og:title" content={ title } />
+<meta property="og:description" content={ description } />
+<meta property="og:image" content={image} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
+<meta property="twitter:title" content={ title } />
+<meta property="twitter:description" content={ description } />
+<meta property="twitter:image" content={image} />
 
 <!-- External -->
 <link rel="preconnect" href="https://img2.storyblok.com" />

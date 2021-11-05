@@ -5,17 +5,17 @@ import AppDrawer from '../components/AppDrawer';
 import Component from '../components/Component'
 import Theme from '../components/Theme'
 
-const { title, description } = Astro.props;
+const { story } = Astro.props;
 const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
-const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
+const settings = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
   .then(response => response.json());
-const global = story.content
+const global = settings.story.content
 ---
 <html lang="en">
 
   <head>
-    <BaseHead title={ title } description={ description }/>
+    <BaseHead global={ global } story={ story }/>
     <style lang="scss" global>
       @import "../css/base.scss";
     </style>
