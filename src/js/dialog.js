@@ -1,3 +1,9 @@
 import MicroModal from 'micromodal'
 
-MicroModal.init()
+MicroModal.init({
+    disableFocus: true,
+    onClose: function(modal, element, event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+});
