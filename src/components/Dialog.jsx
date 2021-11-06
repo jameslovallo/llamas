@@ -8,10 +8,9 @@ export default function Dialog({ blok }) {
 	}
 
 	return (
-		<div className="dialog">
+		<div className="dialog" style={styles}>
 			<div
 				className="modal__trigger"
-				style={styles}
 				data-micromodal-trigger={`modal-${blok._uid}`}
 				title={blok.trigger_title}
 				aria-label={blok.trigger_title}

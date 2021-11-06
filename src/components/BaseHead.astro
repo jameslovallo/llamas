@@ -1,18 +1,18 @@
 ---
-const { global, story } = Astro.props
+const { global, page } = Astro.props
 
 const globalTitle = global.SEO.title
 const globalDescription = global.SEO.description
 const globalImage = global.SEO_IMAGE.filename
-const storyTitle = story.content.SEO.title || story.name
-const storyDescription = story.content.SEO.description
-const storyImage = story.content.SEO_IMAGE.filename
+const pageTitle = page.content.SEO.title || page.name
+const pageDescription = page.content.SEO.description
+const pageImage = page.content.SEO_IMAGE.filename
 
-const title = storyTitle && globalTitle 
-	? `${storyTitle} | ${globalTitle}`
+const title = pageTitle && globalTitle 
+	? `${pageTitle} | ${globalTitle}`
 	: globalTitle || "No title!"
-const description = storyDescription || globalDescription
-const image = storyImage || globalImage
+const description = pageDescription || globalDescription
+const image = pageImage || globalImage
 const favicon = global.favicon.filename || ""
 ---
 

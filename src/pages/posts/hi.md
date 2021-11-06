@@ -5,7 +5,7 @@ publishDate: 'Tuesday, June 8 2021'
 author: 'fred'
 heroImage: '/social.jpg'
 alt: 'Astro'
-layout: '../../layouts/DefaultLayout.astro'
+# layout: '../../layouts/DefaultLayout.astro'
 ---
 
 There's a simple secret to building a faster website — _just ship less_.
