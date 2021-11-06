@@ -16,7 +16,7 @@ export default function Video({ blok }) {
 					loop={blok.loop}
 					muted={blok.mute}
 					playsInline={blok.plays_inline}
-					poster={blok.poster.filename}
+					poster={blok.video_poster.filename}
 					preload="auto"
 				>
 					{blok.video_files.map((src) => (
