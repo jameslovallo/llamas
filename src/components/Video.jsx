@@ -13,6 +13,7 @@ export default function Video({ blok }) {
 				<video
 					autoPlay={blok.autoplay}
 					controls={blok.controls}
+					loop={blok.loop}
 					muted={blok.mute}
 					playsInline={blok.plays_inline}
 					poster={blok.poster.filename}
