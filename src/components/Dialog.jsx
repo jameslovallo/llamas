@@ -19,7 +19,7 @@ export default function Dialog({ blok }) {
 				<SectionChildren blok={blok.trigger[0]} />
 			</div>
 			<div className="modal" id={`modal-${blok._uid}`} aria-hidden="true">
-				<div className="modal__scrim" tabindex="-1" data-micromodal-close>
+				<div className="modal__scrim" tabIndex="-1" data-micromodal-close>
 					<div
 						className="modal__dialog"
 						role="dialog"

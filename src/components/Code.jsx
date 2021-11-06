@@ -31,7 +31,7 @@ export default function Code({ blok }) {
 	`
 
 	return (
-		<div class="code" style={styles}>
+		<div className="code" style={styles}>
 			<div
 				className="html"
 				dangerouslySetInnerHTML={{ __html: template }}
