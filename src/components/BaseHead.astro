@@ -1,12 +1,12 @@
 ---
-const { global, page } = Astro.props
+const { global, page, content } = Astro.props
 
-const globalTitle = global.SEO.title
-const globalDescription = global.SEO.description
-const globalImage = global.SEO_IMAGE.filename
-const pageTitle = page.content.SEO.title || page.name
-const pageDescription = page.content.SEO.description
-const pageImage = page.content.SEO_IMAGE.filename
+const globalTitle = global?.SEO.title
+const globalDescription = global?.SEO?.description
+const globalImage = global?.SEO_IMAGE?.filename
+const pageTitle = page?.content?.SEO?.title || page?.name || content?.title
+const pageDescription = page?.content.SEO?.description || content?.description
+const pageImage = page?.content?.SEO_IMAGE?.filename || content?.image
 
 const title = pageTitle && globalTitle 
 	? `${pageTitle} | ${globalTitle}`

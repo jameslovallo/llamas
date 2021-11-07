@@ -11,7 +11,7 @@ h5,
 h6 {
 	font-family: var(--heading-font);
 	color: var(--heading-color);
-	margin: 0;
+	:not(article) {margin: 0;}
 	line-height: 1.2;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -122,4 +122,10 @@ h6,
 
 .small {
 	font-size: 14px;
+}
+
+blockquote {
+	margin: 1em 0;
+	padding: 1px  0 1px 2em;
+	border-left: 4px solid currentColor;
 }

@@ -1,21 +1,24 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
+import ArticleHero from '../components/ArticleHero.astro'
 import AppBar from '../components/AppBar'
 import AppDrawer from '../components/AppDrawer'
 import Component from '../components/Component'
 import Theme from '../components/Theme'
 
-const { page } = Astro.props
 const key = process.env.TOKEN
 const cacheBuster = new Date().getMilliseconds()
 const {story} = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
   .then(response => response.json())
 const global = story.content
+
+const { page, content } = Astro.props
+const El = typeof content === "object" ? "article" : "main"
 ---
 <html lang="en">
 
   <head>
-    <BaseHead global={ global } page={ page }/>
+    <BaseHead global={ global } page={ page } content={content}/>
     <style lang="scss" global>
       @import "../css/base.scss";
     </style>
@@ -27,7 +30,10 @@ const global = story.content
     <AppDrawer global={ global }/>
     <AppBar global={ global }/>
     
-    <slot/>
+    <El>
+      {El === "article" && <ArticleHero content={content} />}
+      <slot/>
+    </El>
 
     {global.footer.map(content => (
       <Component blok={ content }/>

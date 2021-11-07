@@ -4,7 +4,8 @@ body {
 	flex-direction: column;
 }
 
-main {
+main,
+article {
 	flex-grow: 1;
 	padding: 24px 16px;
 
