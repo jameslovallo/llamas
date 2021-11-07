@@ -1,21 +1,18 @@
 .section {
 	--section: var(--primary);
 	--on-section: var(--on-primary);
-	--safe-width: calc(90vw - (100vw - 100%));
 	background: var(--section);
 	color: var(--on-section);
-	padding-top: 24px;
-	padding-bottom: 24px;
 
 	.button {
 		--button: var(--on-section);
 		--on-button: var(--section);
 	}
 
-	.grid &--full-width {
+	@mixin negativMargins {
 		margin-left: -16px;
 		margin-right: -16px;
-	
+
 		@media (min-width: 640px) {
 			margin-left: -5vw;
 			margin-right: -5vw;
@@ -26,53 +23,46 @@
 		}
 	}
 
+	.grid &--full-width {
+		@include negativMargins();
+	}
+
 	&--contained {
-		padding-left: 16px;
-		padding-right: 16px;
+.grid{		padding: 24px 16px;
 
 		@media (min-width: 640px) {
-			padding-left: 5vw;
-			padding-right: 5vw;
+			padding: 24px 5vw;
 		}
-
 		@media (min-width: 1320px) {
-			padding-left: calc(50vw - 600px);
-			padding-right: calc(50vw - 600px);
-		}
+			padding: 24px calc(50vw - 600px);
+		}}
 	}
 
 	&--swoop {
-		--swoop-curve: 15vw;
-		position: relative;
-		margin-top: 5vw;
-		margin-bottom: 5vw;
+		--swoop-curve: 16vw;
+		margin-top: -24px;
+		margin-bottom: calc(var(--swoop-curve) - 24px);
 		border-bottom-right-radius: var(--swoop-curve);
-		padding-top: 24px;
-		padding-bottom: 24px;
 
 		@media (min-width: 640px) {
-			--swoop-curve: 10vw;
+			--swoop-curve: 8vw;
 		}
 
-		&:before,
-		&:after {
-			content: "";
-			display: flex;
-			position: absolute;
-			top: calc(var(--swoop-curve) * -1);
-			right: 0;
-			width: var(--swoop-curve);
+		.section__top {
+			position: relative;
 			height: var(--swoop-curve);
-			z-index: -1;
-		}
+			background: var(--section);
 
-		&:before {
-			background: inherit;
-		}
-
-		&:after {
-			background: var(--background);
-			border-bottom-right-radius: var(--swoop-curve);
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: var(--background);
+				border-bottom-right-radius: var(--swoop-curve);
+			}
 		}
 	}
 }
