@@ -19,6 +19,10 @@ h6 {
 	.grid > .text &:first-child:last-child {
 		margin: 0;
 	}
+
+	article & {
+		margin-top: 1em;
+	}
 }
 
 h1,

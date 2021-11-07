@@ -1,10 +1,12 @@
 ---
 const { content } = Astro.props
+const image = content.image.startsWith("public")
+	? content.image.replace("public", "") : content.image
 ---
 <h1>{ content.title }</h1>
 <p>{ content.description }</p>
 <img
-	src={ content.image }
+	src={ image }
 	alt={ content.alt }
 	style="margin: 32px -16px; width: calc(100% + 32px); max-width: none;"
 />

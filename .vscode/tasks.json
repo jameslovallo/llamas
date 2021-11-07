@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "npx netlify-cms-proxy-server",
+			"problemMatcher": [],
+			"label": "1.1. Netlify CMS Dev"
+		},
+		{
+			"type": "shell",
+			"command": "ntl dev:exec npm run dev",
+			"problemMatcher": [],
+			"label": "1. Dev"
+		},
+		{
+			"type": "shell",
+			"command": "ntl dev:exec npm run build",
+			"problemMatcher": [],
+			"label": "2. Build"
+		},
+		{
+			"type": "shell",
+			"command": "npm run preview",
+			"problemMatcher": [],
+			"label": "3. Review"
+		},
+		{
+			"type": "shell",
+			"command": "ntl deploy --prod",
+			"problemMatcher": [],
+			"label": "4. Deploy"
+		}
+	]
+}
