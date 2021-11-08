@@ -18,7 +18,7 @@ const pageString = JSON.stringify(page)
 const clientScript = (component, module = false) => {
   const c = component.toLowerCase()
   const type = module ? "module" : "application/javascript"
-  if (pageString.includes(`"component":"${component}"`)) {
+  if (pageString && pageString.includes(`"component":"${component}"`)) {
     return (
       <script src={Astro.resolve(`../js/${c}.js`)} defer type={type}></script>
     )
