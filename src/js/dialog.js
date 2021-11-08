@@ -4,11 +4,11 @@ MicroModal.init({
 	disableFocus: true,
 	disableScroll: false,
 	onShow: function (modal, element, event) {
-		tuaLock(element) //declared in tua.js
+		tuaLock(modal) //declared in drawer.js
 	},
 	onClose: function (modal, element, event) {
 		event.preventDefault()
 		event.stopPropagation()
-		tuaUnlock(element) //declared in tua.js
+		tuaUnlock(modal) //declared in drawer.js
 	},
 })
