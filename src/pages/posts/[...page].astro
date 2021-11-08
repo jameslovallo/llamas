@@ -18,10 +18,10 @@ const {page} = Astro.props;
 	></script>
 </head>
 <DefaultLayout>
-		<h1>Posts</h1>
-		<p style="margin-bottom: 24px;">
-			Showing {page.start + 1} - {page.end + 1} of {page.total}
-		</p>
+	<h1>Posts</h1>
+	<p style="margin-bottom: 24px;">
+		Showing {page.start + 1} - {page.end + 1} of {page.total}
+	</p>
 	<div class="grid">
 		<masonry-layout>
 			{page.data.map(post => (
