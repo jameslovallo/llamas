@@ -1,0 +1,28 @@
+---
+const { data } = Astro.props;
+---
+{ data.lastPage !== 1 &&
+	<footer>
+		<p style="text-align: center;">
+			Showing {data.start + 1} - {data.end + 1} of {data.total}
+		</p>
+		<div style="display: flex; justify-content: center; align-items: center;">
+			{data.currentPage !== 1 && (
+				<a
+					class="button button--text button--rounded"
+					href={data.url.prev || '#'}
+				>
+					Previous
+				</a>
+			)}
+			{data.currentPage !== data.lastPage && (
+				<a
+					class="button button--text button--rounded"
+					href={data.url.next || '#'}
+				>
+					Next
+				</a>
+			)}
+		</div>
+	</footer>
+}
