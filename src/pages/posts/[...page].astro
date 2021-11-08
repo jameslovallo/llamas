@@ -4,19 +4,11 @@ import Pagination from "../../components/Pagination.astro"
 export async function getStaticPaths({paginate}) {
   const posts = Astro.fetchContent('./*.md')
     .sort((a, b) => b.date - a.date)
-
-  return paginate(posts, {pageSize: 12});
+	if (posts.length > 0) return paginate(posts, {pageSize: 12});
 }
 
 const {page} = Astro.props;
 ---
-<head>
-	<script
-		src="https://unpkg.com/@appnest/masonry-layout@2.0.8/masonry-layout.js"
-		type="module"
-		inline
-	></script>
-</head>
 <DefaultLayout>
 	<h1>Posts</h1>
 	<p style="margin-bottom: 24px;">
@@ -43,5 +35,10 @@ const {page} = Astro.props;
 			))}
 		</masonry-layout>
 	</div>
+	<script
+		src="https://unpkg.com/@appnest/masonry-layout@2.0.8/masonry-layout.js"
+		type="module"
+		inline
+	></script>
   <Pagination data={page} />
 </DefaultLayout>
