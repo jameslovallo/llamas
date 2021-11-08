@@ -10,7 +10,7 @@ public_folder: public/img
 collections:
   - name: 'posts'
     label: 'Post'
-    folder: 'src/pages/post'
+    folder: 'src/pages/posts'
     format: 'frontmatter'
     create: true
     slug: '{{slug}}'
