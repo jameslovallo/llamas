@@ -1,10 +1,10 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import ArticleHero from '../components/ArticleHero.astro'
-import AppBar from '../components/AppBar'
-import AppDrawer from '../components/AppDrawer'
-import Component from '../components/Component'
-import Theme from '../components/Theme'
+import BaseHead from "../components/BaseHead.astro"
+import ArticleHero from "../components/ArticleHero.astro"
+import AppBar from "../components/AppBar"
+import AppDrawer from "../components/AppDrawer"
+import Component from "../components/Component"
+import Theme from "../components/Theme"
 
 const key = process.env.TOKEN
 const cacheBuster = new Date().getMilliseconds()
@@ -14,6 +14,16 @@ const global = story.content
 
 const { page, content } = Astro.props
 const El = typeof content === "object" ? "article" : "main"
+const pageString = JSON.stringify(page)
+const clientScript = (component, module = false) => {
+  const c = component.toLowerCase()
+  const type = module ? "module" : "application/javascript"
+  if (pageString.includes(`"component":"${component}"`)) {
+    return (
+      <script src={Astro.resolve(`../js/${c}.js`)} defer type={type}></script>
+    )
+  }
+}
 ---
 <html lang="en">
 
@@ -43,10 +53,19 @@ const El = typeof content === "object" ? "article" : "main"
     ))}
 
     <!-- Load Images -->
-    <script src={Astro.resolve('../js/images.js')}></script>
+    <script src={Astro.resolve("../js/images.js")}></script>
 
     <!-- Activate the Drawer -->
-    <script type="module" src={Astro.resolve('../js/drawer.js')}></script>
+    <script type="module" src={Astro.resolve("../js/drawer.js")}></script>
+
+    <!-- Component Scripts -->
+    { clientScript("Dialog", true) }
+    { clientScript("Form") }
+    { clientScript("Tabs") }
+    { clientScript("Video") }
+
+    <!-- Deferred Crap like Fonts -->
+    { global.custom_html }
 
     <!-- Settings Redirect -->
     <script>
@@ -54,9 +73,6 @@ const El = typeof content === "object" ? "article" : "main"
         window.location.replace("http://localhost:3000")
       }
     </script>
-
-    <!-- Deferred Crap like Fonts -->
-    { global.custom_html }
 
   </body>
 

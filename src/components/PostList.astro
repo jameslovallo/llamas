@@ -1,6 +1,4 @@
 ---
-import DefaultLayout from "../../layouts/DefaultLayout.astro"
-
 const posts = Astro.fetchContent("./*.md")
 ---
 <head>
@@ -8,7 +6,6 @@ const posts = Astro.fetchContent("./*.md")
 		import appnestMasonryLayout from 'https://cdn.skypack.dev/@appnest/masonry-layout';
 	</script>
 </head>
-<DefaultLayout>
 	<div class="grid">
 		<h1>Posts</h1>
 		<masonry-layout>
@@ -31,4 +28,3 @@ const posts = Astro.fetchContent("./*.md")
 			))}
 		</masonry-layout>
 	</div>
-</DefaultLayout>

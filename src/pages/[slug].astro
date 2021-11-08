@@ -5,8 +5,8 @@ import Component from "../components/Component.jsx"
 export async function getStaticPaths() {
   const key = process.env.TOKEN
   const cacheBuster = new Date().getMilliseconds()
-  const dev = process.env.npm_lifecycle_script !== 'astro dev'
-  const home = dev ? 'home,' : ''
+  const dev = process.env.npm_lifecycle_script !== "astro dev"
+  const home = dev ? "home," : ""
 
   const { stories } = await fetch(`https://api.storyblok.com/v2/cdn/stories/?excluding_slugs=${home}settings&token=${key}&cv=${cacheBuster}`)
 	  .then(response => response.json())
@@ -20,17 +20,6 @@ export async function getStaticPaths() {
 }
 
 const { story } = Astro.props
-
-const clientScript = (component, module = false) => {
-  const body = JSON.stringify(story.content.body)
-  const c = component.toLowerCase()
-  const type = module ? 'module' : 'application/javascript'
-  if (body.includes(`"component":"${component}"`)) {
-    return (
-      <script src={Astro.resolve(`../js/${c}.js`)} defer type={type}></script>
-    )
-  }
-}
 ---
 <DefaultLayout page={story}>
   <div class="grid">
@@ -38,8 +27,4 @@ const clientScript = (component, module = false) => {
       return <Component blok={child} />
     })}
   </div>
-  {clientScript('Dialog', true)}
-  {clientScript('Form')}
-  {clientScript('Tabs')}
-  {clientScript('Video')}
 </DefaultLayout>

@@ -1,8 +1,10 @@
 import { lock, unlock } from 'tua-body-scroll-lock'
+window.lock = lock
+window.unlock = unlock
 
-let drawerButton = document.querySelector('.app-bar > .button:first-child')
-let drawer = document.querySelector('.app-drawer')
-let drawerScrim = document.querySelector('.app-drawer__scrim')
+const drawerButton = document.querySelector('.app-bar > .button:first-child')
+const drawer = document.querySelector('.app-drawer')
+const drawerScrim = document.querySelector('.app-drawer__scrim')
 
 drawerButton.addEventListener('click', () => {
 	drawer.style.display = 'block'

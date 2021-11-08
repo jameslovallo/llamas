@@ -6,17 +6,6 @@ const key = process.env.TOKEN
 const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?token=${key}&cv=${cacheBuster}`)
 	.then(response => response.json())
-
-const clientScript = (component, module = false) => {
-  const body = JSON.stringify(story.content.body)
-  const c = component.toLowerCase()
-  const type = module ? 'module' : 'application/javascript'
-  if (body.includes(`"component":"${component}"`)) {
-    return (
-      <script src={Astro.resolve(`../js/${c}.js`)} defer type={type}></script>
-    )
-  }
-}
 ---
 <DefaultLayout page={ story }>
   <div class="grid">
@@ -24,8 +13,4 @@ const clientScript = (component, module = false) => {
       return <Component blok={child} />
     })}
   </div>
-  {clientScript('Dialog', true)}
-  {clientScript('Form')}
-  {clientScript('Tabs')}
-  {clientScript('Video')}
 </DefaultLayout>
