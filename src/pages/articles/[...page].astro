@@ -1,0 +1,42 @@
+---
+import DefaultLayout from "../../layouts/DefaultLayout.astro"
+import Pagination from "../../components/Pagination.astro"
+export async function getStaticPaths({paginate}) {
+  const posts = Astro.fetchContent('./*.md')
+    .sort((a, b) => b.date - a.date)
+
+  return paginate(posts, {pageSize: 12});
+}
+
+const {page} = Astro.props;
+---
+<DefaultLayout>
+	<h1>Posts</h1>
+	<p style="margin-bottom: 24px;">
+		Showing {page.start + 1} - {page.end + 1} of {page.total}
+	</p>
+	<div class="grid">
+		<masonry-layout>
+			{page.data.map(post => (
+				<a class="card" href={ post.url } style="text-decoration: none">
+					<img 
+						src={ post.image.startsWith("public") ? post.image.replace("public", "") : post.image }
+						alt={ post.alt }
+					/>
+					<span class="card__content">
+						<span class="text">
+							<h2>{ post.title }</h2>
+							<p>{ post.description }</p>
+						</span>
+					</span>
+				</a>
+			))}
+		</masonry-layout>
+	</div>
+	<script
+		src="https://unpkg.com/@appnest/masonry-layout@2.0.8/masonry-layout.js"
+		type="module"
+		inline
+	></script>
+  <Pagination data={page} />
+</DefaultLayout>
