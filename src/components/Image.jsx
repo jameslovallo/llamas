@@ -58,7 +58,11 @@ export default function Image({ blok }) {
 
 		return (
 			<div className="image" style={styles}>
-				<img inline src={blok.image.filename} style={{ objectFit: fit }} />
+				<img
+					inline="true"
+					src={blok.image.filename}
+					style={{ objectFit: fit }}
+				/>
 			</div>
 		)
 	}
