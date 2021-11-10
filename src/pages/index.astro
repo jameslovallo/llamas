@@ -15,7 +15,7 @@ const posts = Astro.fetchContent("../pages/articles/*.md")
       return <Component blok={child} />
     })}
     <div class="grid--auto-responsive" style="margin-top: -16px">
-      {posts.map(post=>(
+      {posts.slice(0, 3).map(post=>(
         <a href={post.url} class="card" style="text-decoration: none">
           <span style="padding-top: 75%; position: relative; display: grid">
             <img src={post.image.replace("public", "")} alt={post.alt} style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%; object-fit: cover; object-position: top;" />
