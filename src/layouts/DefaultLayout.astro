@@ -20,7 +20,7 @@ const clientScript = (component, module = false) => {
   const type = module ? "module" : "application/javascript"
   if (pageString && pageString.includes(`"component":"${component}"`)) {
     return (
-      <script src={Astro.resolve(`../js/${c}.js`)} inline type={type}></script>
+      <script src={Astro.resolve(`../js/${c}.js`)} defer type={type}></script>
     )
   }
 }
@@ -53,10 +53,10 @@ const clientScript = (component, module = false) => {
     ))}
 
     <!-- Load Images -->
-    <script src={Astro.resolve("../js/images.js")} inline></script>
+    <script src={Astro.resolve("../js/images.js")}></script>
 
     <!-- Activate the Drawer -->
-    <script type="module" src={Astro.resolve("../js/drawer.js")} inline></script>
+    <script type="module" src={Astro.resolve("../js/drawer.js")}></script>
 
     <!-- Component Scripts -->
     { clientScript("Dialog", true) }
