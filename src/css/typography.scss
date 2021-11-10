@@ -130,6 +130,24 @@ h6,
 
 blockquote {
 	margin: 1em 0;
-	padding: 1px  0 1px 2em;
+	padding: 1px 0 1px 2em;
 	border-left: 4px solid var(--primary);
+}
+
+a[href*='kaina'] {
+	background: var(--on-section);
+	color: var(--section);
+	display: inline-block;
+	line-height: 1.33;
+	margin-left: 0.33rem;
+	padding: 0 0.33rem;
+	position: relative;
+	font-family: arial;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: small;
+	&:hover {
+		opacity: 0.8;
+	}
 }
