@@ -19,7 +19,7 @@
 		&:last-child {
 			padding-bottom: 16px;
 		}
-		
+
 		.text {
 			h2,
 			h3,
@@ -48,10 +48,15 @@
 		padding: 8px;
 		display: flex;
 
-		.button:not(.button--text):first-child {
-			margin-left: 8px;
-			margin-top: 8px;
-			margin-bottom: 8px;
+		.button {
+			&--text {
+				--button: var(--on-surface);
+			}
+			&:not(.button--text):first-child {
+				margin-left: 8px;
+				margin-top: 8px;
+				margin-bottom: 8px;
+			}
 		}
 	}
 }
