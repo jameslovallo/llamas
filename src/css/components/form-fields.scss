@@ -4,7 +4,7 @@
 	border-radius: 4px;
 	width: 300px;
 	&:before {
-		content: "🤖 I'm not a robot"
+		content: "🤖 I'm not a robot";
 	}
 }
 
@@ -38,8 +38,13 @@
 		padding: 0 var(--padding);
 		margin: 0;
 		background: transparent;
+		color: inherit;
 		&:focus {
 			outline: none;
+		}
+		&:required + div > label > span:after {
+			content: "*";
+			transform: scale(.5);
 		}
 	}
 	select {
@@ -120,7 +125,7 @@
 	}
 	input:focus + &-outline,
 	textarea:focus + &-outline,
-	select:focus + &-outline, 
+	select:focus + &-outline,
 	select[data-active]:focus + &-outline {
 		--border-width: 2px;
 		label {
@@ -163,12 +168,12 @@
 		--border-color: var(--valid);
 		color: var(--valid);
 	}
-	input:not(:focus):invalid + .material-input-outline {
+	input:not(:focus):not(:placeholder-shown):invalid + .material-input-outline {
 		--border-color: var(--invalid);
 		color: var(--invalid);
 	}
-	input:not(:focus):invalid,
-	input:not(:focus):invalid + .material-input-outline {
+	input:not(:focus):not(:placeholder-shown):invalid,
+	input:not(:focus):not(:placeholder-shown):invalid + .material-input-outline {
 		will-change: transform;
 		animation: headShake 1s;
 		animation-timing-function: ease-in-out;
