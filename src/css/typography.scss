@@ -128,6 +128,13 @@ h6,
 	font-size: 14px;
 }
 
+.truncate {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: block;
+}
+
 blockquote {
 	margin: 1em 0;
 	padding: 1px 0 1px 2em;
