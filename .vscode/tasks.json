@@ -9,7 +9,7 @@
 		},
 		{
 			"type": "shell",
-			"command": "ntl dev",
+			"command": "ntl dev:exec npm run dev",
 			"problemMatcher": [],
 			"label": "1. Dev"
 		},
