@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro"
-import ArticleHero from "../components/ArticleHero.astro"
+import PostHero from "../components/PostHero.astro"
 import AppBar from "../components/AppBar"
 import AppDrawer from "../components/AppDrawer"
 import Component from "../components/Component"
@@ -41,7 +41,7 @@ const clientScript = (component, module = false) => {
     <AppBar global={ global }/>
     
     <El>
-      {El === "article" && <ArticleHero content={content} />}
+      {El === "article" && <PostHero content={content} />}
       <slot/>
       {El === "article" && global.blog_footer.map(content => (
         <Component blok={ content }/>
