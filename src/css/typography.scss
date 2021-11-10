@@ -8,7 +8,14 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.h1,
+.h2,
+.h3,
+.h4, 
+.h5,
+.h6 {
+	display: block;
 	font-family: var(--heading-font);
 	color: var(--heading-color);
 	margin: 0;
@@ -122,6 +129,7 @@ h6,
 
 .p {
 	font-size: 16px;
+	display: block;
 }
 
 .small {
