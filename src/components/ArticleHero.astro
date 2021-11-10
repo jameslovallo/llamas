@@ -5,8 +5,6 @@ const image = content.image.startsWith("public")
 ---
 <h1>{ content.title }</h1>
 <p>{ content.description }</p>
-<img
-	src={ image }
-	alt={ content.alt }
-	style="margin: 32px -16px; width: calc(100% + 32px); max-width: none;"
-/>
+<div style="padding-top: 56.25%; position: relative; display: grid; margin: 32px -16px">
+	<img src={ image } alt="" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%; object-fit: cover; object-position: top;" />
+</div>
