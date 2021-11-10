@@ -5,17 +5,17 @@
 			"type": "shell",
 			"command": "npx netlify-cms-proxy-server",
 			"problemMatcher": [],
-			"label": "1.1. Netlify CMS Dev"
+			"label": "Netlify CMS Dev"
 		},
 		{
 			"type": "shell",
-			"command": "ntl dev:exec npm run dev",
+			"command": "ntl dev",
 			"problemMatcher": [],
 			"label": "1. Dev"
 		},
 		{
 			"type": "shell",
-			"command": "ntl dev:exec npm run build",
+			"command": "ntl build",
 			"problemMatcher": [],
 			"label": "2. Build"
 		},
