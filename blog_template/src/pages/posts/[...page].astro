@@ -18,21 +18,18 @@ const {page} = Astro.props;
 	<div class="grid">
 		<masonry-layout>
 			{page.data.map(post => (
-				<div class="card">
+				<a class="card" href={ post.url } style="text-decoration: none">
 					<img 
 						src={ post.image.startsWith("public") ? post.image.replace("public", "") : post.image }
 						alt={ post.alt }
 					/>
-					<div class="card__content">
-						<div class="text">
-							<h2>{ post.title }</h2>
-							<p>{ post.description }</p>
-						</div>
-					</div>
-					<div class="card__actions">
-						<a href={ post.url } class="button button--text">Read More</a>
-					</div>
-				</div>
+					<span class="card__content">
+						<span class="text">
+							<span class="h3">{ post.title }</span>
+							<span class="p">{ post.description }</span>
+						</span>
+					</span>
+				</a>
 			))}
 		</masonry-layout>
 	</div>
