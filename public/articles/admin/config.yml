@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
-  repo: kaina-agency/macc-cookbook
-  branch: master
+  repo: kaina-agency/llamas
+  branch: client/macfarr
 local_backend: true
 
 media_folder: public/img
