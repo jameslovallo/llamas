@@ -43,12 +43,12 @@ export default function Image({ blok }) {
 		return (
 			<div className="image loading" style={styles}>
 				<img
+					inline
 					src={img.tiny || ''}
 					data-src={img.src}
 					loading="lazy"
 					width={img.width}
 					height={img.height}
-					inline
 				/>
 			</div>
 		)
@@ -58,7 +58,7 @@ export default function Image({ blok }) {
 
 		return (
 			<div className="image" style={styles}>
-				<img src={blok.image.filename} style={{ objectFit: fit }} inline />
+				<img inline src={blok.image.filename} style={{ objectFit: fit }} />
 			</div>
 		)
 	}
