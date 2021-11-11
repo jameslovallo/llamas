@@ -9,6 +9,12 @@
 		},
 		{
 			"type": "shell",
+			"command": "ntl unlink && ntl link",
+			"problemMatcher": [],
+			"label": "Switch Projects"
+		},
+		{
+			"type": "shell",
 			"command": "ntl dev:exec npm run dev",
 			"problemMatcher": [],
 			"label": "1. Dev"
