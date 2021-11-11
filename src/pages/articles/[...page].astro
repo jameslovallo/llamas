@@ -3,7 +3,7 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro"
 import Pagination from "../../components/Pagination.astro"
 export async function getStaticPaths({paginate}) {
   const posts = Astro.fetchContent('./*.md')
-    .sort((a, b) => b.date - a.date)
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
   return paginate(posts, {pageSize: 12});
 }
