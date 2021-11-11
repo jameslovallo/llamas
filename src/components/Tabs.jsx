@@ -12,6 +12,7 @@ export default function Tabs({ blok }) {
 	const styles = {
 		...responsive(blok.responsive),
 		alignSelf: blok.vertical_alignment,
+		'--tabs': blok.color ? `var(--${blok.color})` : undefined,
 	}
 
 	return (
