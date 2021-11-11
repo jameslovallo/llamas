@@ -3,18 +3,6 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"command": "npx netlify-cms-proxy-server",
-			"problemMatcher": [],
-			"label": "Netlify CMS Dev"
-		},
-		{
-			"type": "shell",
-			"command": "ntl unlink && ntl link",
-			"problemMatcher": [],
-			"label": "Switch Projects"
-		},
-		{
-			"type": "shell",
 			"command": "ntl dev:exec npm run dev",
 			"problemMatcher": [],
 			"label": "1. Dev"
@@ -36,6 +24,24 @@
 			"command": "ntl deploy --prod",
 			"problemMatcher": [],
 			"label": "4. Deploy"
+		},
+		{
+			"type": "shell",
+			"command": "npx netlify-cms-proxy-server",
+			"problemMatcher": [],
+			"label": "Netlify CMS Dev"
+		},
+		{
+			"type": "shell",
+			"command": "ntl unlink && ntl link",
+			"problemMatcher": [],
+			"label": "Netlify Link"
+		},
+		{
+			"type": "shell",
+			"command": "nvm use 16.11.1",
+			"problemMatcher": [],
+			"label": "Set Node Version"
 		}
 	]
 }
