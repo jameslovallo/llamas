@@ -1,11 +1,7 @@
-.form__recaptcha:empty {
-	padding: 1em;
-	border: 1px solid currentColor;
-	border-radius: 4px;
-	width: 300px;
-	&:before {
-		content: "🤖 I'm not a robot";
-	}
+form.form {
+	--field: var(--primary);
+	--on-field: var(--on-primary)
+	color: inherit;
 }
 
 .form__field > *,
@@ -14,7 +10,6 @@
 }
 
 .material-input {
-	--field: var(--primary);
 	--valid: green;
 	--invalid: red;
 	--padding: 0.5rem;
@@ -51,6 +46,9 @@
 	select {
 		width: 100%;
 		color: inherit;
+		option {
+			color: initial;
+		}
 		~ i {
 			content: '';
 			display: block;
