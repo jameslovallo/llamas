@@ -2,9 +2,16 @@
 const { content } = Astro.props
 const image = content.image.startsWith("public")
 	? content.image.replace("public", "") : content.image
+const d = String(new Date(content.date)).split(' ')
+const date = `Published ${d[0]}, ${d[1]} ${d[2]}`
 ---
-<h1>{ content.title }</h1>
-<p>{ content.description }</p>
-<div style="padding-top: 56.25%; position: relative; display: grid; margin: 32px -16px">
-	<img src={ image } alt={content.alt} style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100%; width: 100%; object-fit: cover; object-position: top;" />
+<div class="article__hero">
+	<h1>{ content.title }</h1>
+	<p style="margin-bottom: 0;">{ content.description }</p>
+	<p class="small">{ date }</p>
+	<img
+		src={ image }
+		alt={content.alt}
+		style="margin-top: 2em; margin-bottom: 2em;"
+	/>
 </div>
