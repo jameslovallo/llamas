@@ -16,7 +16,7 @@ const {page} = Astro.props;
 		Showing {page.start + 1} - {page.end + 1} of {page.total}
 	</p>
 	<div class="grid">
-		<masonry-layout>
+		<masonry-layout style="visibility: hidden">
 			{page.data.map(post => (
 				<a class="card" href={ post.url } style="text-decoration: none">
 					<img 
@@ -36,7 +36,7 @@ const {page} = Astro.props;
 	<script
 		src="https://unpkg.com/@appnest/masonry-layout@2.0.8/masonry-layout.js"
 		type="module"
-		inline
+		onload="document.querySelector('masonry-layout').style.visibility='visible'"
 	></script>
   <Pagination data={page} />
 </DefaultLayout>
