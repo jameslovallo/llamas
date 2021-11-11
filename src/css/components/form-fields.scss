@@ -179,6 +179,16 @@ form.form {
 	}
 }
 
+.form__recaptcha:empty {
+	padding: 1em;
+	border: 1px solid currentColor;
+	border-radius: 4px;
+	width: 300px;
+	&:before {
+		content: "🤖 I'm not a robot";
+	}
+}
+
 @keyframes headShake {
 	0% {
 		transform: translateX(0);
