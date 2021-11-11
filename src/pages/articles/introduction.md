@@ -1,7 +1,8 @@
 ---
 title: Introduction
 description: Who I am and what I'm trying to do.
-image: public/img/mac.jpeg
+image: public/img/flag_of_detroit.svg.png
+alt: Flag for the city of Detroit
 date: 2021-11-10T14:40:40.970Z
 layout: ../../layouts/DefaultLayout.astro
 ---
