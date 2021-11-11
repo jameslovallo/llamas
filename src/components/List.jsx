@@ -5,6 +5,8 @@ export default function List({ blok }) {
 	const styles = {
 		...responsive(blok.responsive),
 		alignSelf: blok.vertical_alignment,
+		'--list': blok.color ? `var(--${blok.color})` : undefined,
+		'--on-list': blok.color ? `var(--on-${blok.color})` : undefined,
 	}
 
 	return (

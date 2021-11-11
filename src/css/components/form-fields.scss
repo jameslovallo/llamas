@@ -14,6 +14,7 @@
 }
 
 .material-input {
+	--field: var(--primary);
 	--valid: green;
 	--invalid: red;
 	--padding: 0.5rem;
@@ -111,7 +112,7 @@
 	select:focus + &-outline,
 	select[data-active] + &-outline,
 	select[data-active]:focus + &-outline {
-		--border-color: var(--primary);
+		--border-color: var(--field);
 		label {
 			border-top: var(--border-width) solid transparent;
 			font-size: 12px;
@@ -129,7 +130,7 @@
 	select[data-active]:focus + &-outline {
 		--border-width: 2px;
 		label {
-			color: var(--primary);
+			color: var(--field);
 		}
 	}
 	&--textarea {

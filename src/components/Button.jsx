@@ -9,12 +9,18 @@ export default function Button({ blok, submit }) {
 		return classes.join(' ').trim()
 	}
 
+	const styles = {
+		'--button': blok.color ? `var(--${blok.color})` : undefined,
+		'--on-button': blok.color ? `var(--on-${blok.color})` : undefined,
+	}
+
 	const El = submit ? 'button' : 'a'
 	const href = blok.link ? link(blok.link) : undefined
 
 	return (
 		<El
 			className={classes()}
+			style={styles}
 			{...(href ? { href: href } : {})}
 			{...(submit ? { type: 'submit' } : {})}
 		>

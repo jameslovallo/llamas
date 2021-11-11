@@ -1,4 +1,6 @@
 fieldset {
+	--field: var(--primary);
+	--on-field: var(--on-primary);
 	padding: 8px 0 0;
 	margin: 0;
 	border: none;
@@ -29,7 +31,7 @@ fieldset {
 				width: 40px;
 				border-radius: 50%;
 				position: absolute;
-				background: var(--primary);
+				background: var(--field);
 				opacity: 0;
 			}
 			&:active:before,
@@ -47,8 +49,8 @@ fieldset {
 				transition: none;
 			}
 			&:checked:after {
-				background: var(--primary);
-				border-color: var(--primary);
+				background: var(--field);
+				border-color: var(--field);
 				opacity: 1;
 			}
 			& + svg {
@@ -68,7 +70,7 @@ fieldset {
 				}
 			}
 			&:checked + svg > path {
-				stroke: var(--on-primary);
+				stroke: var(--on-field);
 				stroke-dashoffset: 0;
 				opacity: 1;
 			}
@@ -82,8 +84,8 @@ fieldset {
 			}
 			+ i {
 				position: absolute;
-				fill: var(--primary);
-				background: var(--primary);
+				fill: var(--field);
+				background: var(--field);
 				border-radius: 50%;
 				height: 10px;
 				width: 10px;
