@@ -2,6 +2,7 @@
 	--button: var(--primary);
 	--on-button: var(--on-primary);
 	display: inline-grid;
+	align-items: normal;
 	overflow: hidden;
 	border-radius: 4px;
 	min-height: 36px;
@@ -22,12 +23,16 @@
 	&__background {
 		background: currentColor;
 		opacity: 0;
+	}
 
-		&:hover {
+	&:hover {
+		.button__background {
 			opacity: var(--hover-opacity);
 		}
+	}
 
-		&:active {
+	&:active {
+		.button__background {
 			opacity: var(--active-opacity);
 		}
 	}
@@ -70,19 +75,17 @@
 	&--unelevated {
 		background: var(--button);
 		color: var(--on-button);
+		.button__background {
+			--hover-opacity: 0.12;
+			--active-opacity: 0.2;
+		}
 	}
 
 	&--subtle {
 		.button__background {
 			opacity: 0.12;
-
-			&:hover {
-				opacity: 0.16;
-			}
-
-			&:active {
-				opacity: 0.20;
-			}
+			--hover-opacity: 0.16;
+			--active-opacity: 0.2;
 		}
 	}
 
