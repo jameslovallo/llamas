@@ -3,6 +3,13 @@
   command = "astro build"
   # functions = "netlify/functions"
   publish = "dist"
+  ignore = "git log -1 --pretty=%B | grep dependabot"
+
+[[redirects]]
+  from = "/proxy/*"
+  to = ":splat"
+  status = 200
+  force = true
 
 [[plugins]]
   package = "netlify-plugin-inline-source"
