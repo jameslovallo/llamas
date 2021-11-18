@@ -28,24 +28,26 @@
 	}
 
 	&--contained {
-.grid{		padding: 24px 16px;
+		.grid {
+			padding: 24px 16px;
 
-		@media (min-width: 640px) {
-			padding: 24px 5vw;
+			@media (min-width: 640px) {
+				padding: 24px 5vw;
+			}
+			@media (min-width: 1320px) {
+				padding: 24px calc(50vw - 600px);
+			}
 		}
-		@media (min-width: 1320px) {
-			padding: 24px calc(50vw - 600px);
-		}}
 	}
 
 	&--swoop {
-		--swoop-curve: 16vw;
+		--swoop-curve: 48px;
 		margin-top: -24px;
 		margin-bottom: calc(var(--swoop-curve) - 24px);
 		border-bottom-right-radius: var(--swoop-curve);
 
 		@media (min-width: 640px) {
-			--swoop-curve: 8vw;
+			--swoop-curve: 96px;
 		}
 
 		.section__top {

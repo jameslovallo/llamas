@@ -1,12 +1,10 @@
 .button {
 	--button: var(--primary);
 	--on-button: var(--on-primary);
-	display: inline-flex;
-	align-items: center;
-	position: relative;
+	display: inline-grid;
+	align-items: normal;
 	overflow: hidden;
 	border-radius: 4px;
-	padding: 0 16px;
 	min-height: 36px;
 	color: var(--button);
 	font-family: var(--ui-family);
@@ -17,23 +15,33 @@
 	font-weight: 500;
 	user-select: none;
 
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+	&__background,
+	&__content {
+		grid-area: 1 / -1;
+		pointer-events: none;
+	}
+
+	&__background {
 		background: currentColor;
 		opacity: 0;
 	}
 
-	&:hover:before {
-		opacity: var(--hover-opacity);
+	&:hover {
+		.button__background {
+			opacity: var(--hover-opacity);
+		}
 	}
 
-	&:active:before {
-		opacity: var(--active-opacity);
+	&:active {
+		.button__background {
+			opacity: var(--active-opacity);
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		padding: 0 16px;
 	}
 
 	&__label {
@@ -68,19 +76,17 @@
 	&--unelevated {
 		background: var(--button);
 		color: var(--on-button);
+		.button__background {
+			--hover-opacity: 0.12;
+			--active-opacity: 0.2;
+		}
 	}
 
 	&--subtle {
-		&:before {
+		.button__background {
 			opacity: 0.12;
-		}
-
-		&:hover:before {
-			opacity: var(--active-opacity);
-		}
-
-		&:active:before {
-			opacity: 0.20;
+			--hover-opacity: 0.16;
+			--active-opacity: 0.2;
 		}
 	}
 
@@ -89,15 +95,21 @@
 	}
 
 	&--text {
-		padding: 0 8px;
+		.button__content {
+			padding: 0 8px;
+		}
 	}
 
 	&--icon {
-		padding: 12px;
-
+		.button__content {
+			padding: 12px;
+		}
 		.button__label {
 			transform: scale(0);
-			position: absolute;
+			width: 2px;
+			height: 2px;
+			margin: -1px;
+			overflow: hidden;
 		}
 
 		.button__icon {

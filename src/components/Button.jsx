@@ -24,14 +24,17 @@ export default function Button({ blok, submit }) {
 			{...(href ? { href: href } : {})}
 			{...(submit ? { type: 'submit' } : {})}
 		>
-			{blok.icon && (
-				<span
-					aria-hidden="true"
-					className="button__icon"
-					dangerouslySetInnerHTML={{ __html: blok.icon }}
-				/>
-			)}
-			{blok.label && <span className="button__label">{blok.label}</span>}
+			<span className="button__background"></span>
+			<span className="button__content">
+				{blok.icon && (
+					<span
+						aria-hidden="true"
+						className="button__icon"
+						dangerouslySetInnerHTML={{ __html: blok.icon }}
+					/>
+				)}
+				{blok.label && <span className="button__label">{blok.label}</span>}
+			</span>
 		</El>
 	)
 }

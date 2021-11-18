@@ -44,7 +44,8 @@ export default function Dialog({ blok }) {
 								aria-label="Close modal"
 								data-micromodal-close
 							>
-								Close
+								<span className="button__background"></span>
+								<span className="button__content">Close</span>
 							</button>
 						</footer>
 					</div>

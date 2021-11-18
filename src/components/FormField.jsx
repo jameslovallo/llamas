@@ -5,7 +5,7 @@ export default function FormField({ blok }) {
 	const Field = () => {
 		if (['text', 'tel', 'email', 'textarea'].includes(blok.type)) {
 			return (
-				<div class={`material-input material-input--${blok.type}`}>
+				<div className={`material-input material-input--${blok.type}`}>
 					<El
 						id={'b-' + blok._uid}
 						name={blok.label}
@@ -13,7 +13,7 @@ export default function FormField({ blok }) {
 						placeholder=" "
 						required={blok.required}
 					/>
-					<div class="material-input-outline">
+					<div className="material-input-outline">
 						<label for={'b-' + blok._uid}>
 							<span>{blok.label}</span>
 						</label>
@@ -22,7 +22,7 @@ export default function FormField({ blok }) {
 			)
 		} else if (blok.type === 'select') {
 			return (
-				<div class="material-input">
+				<div className="material-input">
 					<select
 						id={'b-' + blok._uid}
 						name={blok.label}
@@ -33,7 +33,7 @@ export default function FormField({ blok }) {
 							return <option>{option}</option>
 						})}
 					</select>
-					<div class="material-input-outline">
+					<div className="material-input-outline">
 						<label for={'b-' + blok._uid}>
 							<span>{blok.label}</span>
 						</label>
@@ -64,7 +64,7 @@ export default function FormField({ blok }) {
 		}
 	}
 	return (
-		<div class="form__field" style={responsive(blok.responsive)}>
+		<div className="form__field" style={responsive(blok.responsive)}>
 			{Field()}
 		</div>
 	)
