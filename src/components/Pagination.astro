@@ -12,7 +12,8 @@ const { data } = Astro.props;
 					class="button button--text button--rounded"
 					href={data.url.prev || '#'}
 				>
-					Previous
+					<span class="button__background"></span>
+					<span class="button__content">Previous</span>
 				</a>
 			)}
 			{data.currentPage !== data.lastPage && (
@@ -20,7 +21,8 @@ const { data } = Astro.props;
 					class="button button--text button--rounded"
 					href={data.url.next || '#'}
 				>
-					Next
+					<span class="button__background"></span>
+					<span class="button__content">Next</span>
 				</a>
 			)}
 		</div>
