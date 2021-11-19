@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import SectionChildren from './SectionChildren'
 
 export default function section({ blok }) {
@@ -7,7 +8,11 @@ export default function section({ blok }) {
 	}
 
 	return (
-		<div className={`section ${blok.style}`} style={styles}>
+		<div
+			className={`section ${blok.style}`}
+			style={styles}
+			{...sbEditable(blok)}
+		>
 			{blok.style.includes('swoop') && <div className="section__top" />}
 			{blok.content.length > 0 && (
 				<div className="grid">

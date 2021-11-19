@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import Children from './Children'
 import responsive from './utils/responsive'
 
@@ -15,7 +16,7 @@ export default function Card({ blok }) {
 	}
 
 	return (
-		<div className={classes()} style={styles}>
+		<div className={classes()} style={styles} {...sbEditable(blok)}>
 			{blok.media.map((media) => (
 				<Children blok={media} />
 			))}

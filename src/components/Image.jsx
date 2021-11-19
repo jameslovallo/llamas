@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import responsive from './utils/responsive'
 
 export default function Image({ blok }) {
@@ -41,7 +42,7 @@ export default function Image({ blok }) {
 			.replace('height', Math.floor(img.height / 100) * 3)
 
 		return (
-			<div className="image loading" style={styles}>
+			<div className="image loading" style={styles} {...sbEditable(blok)}>
 				<img
 					src={img.tiny || ''}
 					data-src={img.src}
@@ -56,7 +57,7 @@ export default function Image({ blok }) {
 		const fit = blok.fit === 'cover' ? 'cover' : 'contain'
 
 		return (
-			<div className="image" style={styles}>
+			<div className="image" style={styles} {...sbEditable(blok)}>
 				<img src={blok.image.filename} style={{ objectFit: fit }} />
 			</div>
 		)

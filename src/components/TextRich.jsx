@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import { render } from 'storyblok-rich-text-react-renderer'
 import responsive from './utils/responsive'
 
@@ -13,7 +14,7 @@ export default function TextRich({ blok }) {
 	}
 
 	return (
-		<div className="text" style={styles}>
+		<div className="text" style={styles} {...sbEditable(blok)}>
 			{render(text)}
 		</div>
 	)

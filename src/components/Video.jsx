@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import responsive from './utils/responsive'
 
 export default function Video({ blok }) {
@@ -9,6 +10,7 @@ export default function Video({ blok }) {
 					...responsive(blok.responsive),
 					alignSelf: blok.vertical_alignment,
 				}}
+				{...sbEditable(blok)}
 			>
 				<video
 					autoPlay={blok.autoplay}
@@ -36,6 +38,7 @@ export default function Video({ blok }) {
 					alignSelf: blok.vertical_alignment,
 					backgroundImage: `url(https://img.youtube.com/vi/${blok.youtube_video_id}/${posterSize}.jpg)`,
 				}}
+				{...sbEditable(blok)}
 			>
 				<div className="video--yt__content">
 					<button className="video--yt__play-button" aria-label="Play Video">

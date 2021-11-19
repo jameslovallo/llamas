@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import Children from './Children'
 import responsive from './utils/responsive'
 
@@ -16,7 +17,7 @@ export default function Tabs({ blok }) {
 	}
 
 	return (
-		<div className={classes()} style={styles}>
+		<div className={classes()} style={styles} {...sbEditable(blok)}>
 			<div role="tablist" aria-label="Entertainment">
 				{blok.content.map((content, n) => (
 					<button
@@ -24,6 +25,7 @@ export default function Tabs({ blok }) {
 						aria-selected={n === 0}
 						aria-controls={'b-tab-' + content._uid}
 						id={'b-' + content._uid}
+						{...sbEditable(content)}
 					>
 						{content.label}
 					</button>

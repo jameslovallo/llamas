@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import link from './utils/link'
 import responsive from './utils/responsive'
 
@@ -10,7 +11,7 @@ export default function List({ blok }) {
 	}
 
 	return (
-		<ul className="list" style={styles}>
+		<ul className="list" style={styles} {...sbEditable(blok)}>
 			{blok.content.map((item) => {
 				const itemClasses = () => {
 					let classes = ['list__item']
@@ -24,7 +25,7 @@ export default function List({ blok }) {
 				const El = href ? 'a' : 'div'
 
 				return (
-					<li className={itemClasses()}>
+					<li className={itemClasses()} {...sbEditable(item)}>
 						{item.icon && !item.avatar.filename && (
 							<div
 								aria-hidden="true"

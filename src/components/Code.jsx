@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import responsive from './utils/responsive'
 
 export default function Code({ blok }) {
@@ -31,7 +32,7 @@ export default function Code({ blok }) {
 	`
 
 	return (
-		<div className="code" style={styles}>
+		<div className="code" style={styles} {...sbEditable(blok)}>
 			<div
 				className="html"
 				dangerouslySetInnerHTML={{ __html: template }}

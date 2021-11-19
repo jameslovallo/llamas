@@ -10,6 +10,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/renderer-react": "^0.2.2",
+		"@storyblok/storyblok-editable": "^1.0.0",
 		"astro": "^0.20.12",
 		"micromodal": "^0.4.6",
 		"storyblok-rich-text-react-renderer": "^2.3.1",

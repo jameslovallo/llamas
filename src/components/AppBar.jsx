@@ -7,7 +7,7 @@ export default function AppBar({ global }) {
 	}
 
 	return (
-		<header className="app-bar" style={appBarColors}>
+		<nav className="app-bar" style={appBarColors}>
 			<Component
 				blok={{
 					component: 'Button',
@@ -32,6 +32,6 @@ export default function AppBar({ global }) {
 					<Component blok={blok} />
 				))}
 			</div>
-		</header>
+		</nav>
 	)
 }

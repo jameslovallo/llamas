@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import Button from './Button'
 import FormField from './FormField'
 import responsive from './utils/responsive'
@@ -18,6 +19,7 @@ export default function Form({ blok }) {
 			name={blok.name}
 			className="form grid"
 			style={styles}
+			{...sbEditable(blok)}
 		>
 			{blok.content.map((item) => {
 				return <FormField blok={item} />

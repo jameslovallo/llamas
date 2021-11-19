@@ -1,3 +1,5 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
+
 export default function Map({ blok }) {
 	const regex = new RegExp('[0-9]+(/|x)[0-9]+')
 	const width = blok.base_width
@@ -17,7 +19,7 @@ export default function Map({ blok }) {
 	const key = '&key=AIzaSyCxqAHXuQxKJh84FPydDkFcXyA2x7wIZVA'
 
 	return (
-		<div className="map">
+		<div className="map" {...sbEditable(blok)}>
 			<a href={'https://google.com/maps/search/' + locations}>
 				<img
 					src={base + query + satellite + size + zoom + key}
