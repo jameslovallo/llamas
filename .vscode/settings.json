@@ -1,0 +1,11 @@
+{
+	"files.exclude": {
+		".netlify": true,
+		".npmrc": true,
+		".vscode": true,
+		"node_modules": true,
+		"README.md": true,
+		"sandbox.config.json": true,
+		"tsconfig.json": true
+	}
+}
