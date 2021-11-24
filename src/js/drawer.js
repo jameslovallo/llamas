@@ -29,5 +29,5 @@ drawerScrim.addEventListener('click', () => {
 drawer
 	.querySelectorAll(`.list a[href="${window.location.pathname}"]`)
 	.forEach((activeLink) => {
-		activeLink.parentNode.classList.add('list__item--active')
+		activeLink.classList.add('list__item--active')
 	})
