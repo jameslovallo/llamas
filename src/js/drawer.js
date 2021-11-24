@@ -25,3 +25,9 @@ drawerScrim.addEventListener('click', () => {
 	}, 500)
 	tuaUnlock()
 })
+
+drawer
+	.querySelectorAll(`.list a[href="${window.location.pathname}"]`)
+	.forEach((activeLink) => {
+		activeLink.parentNode.classList.add('list__item--active')
+	})
