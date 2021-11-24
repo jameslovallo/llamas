@@ -45,32 +45,6 @@
 			width: 40px;
 		}
 
-		a {
-			user-select: none;
-			text-decoration: none;
-			color: inherit;
-		}
-
-		&:hover,
-		&--active {
-			a:before {
-				content: '';
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				background: var(--list);
-				opacity: var(--hover-opacity);
-			}
-		}
-
-		&:active {
-			a:before {
-				opacity: var(--active-opacity);
-			}
-		}
-
 		&__text-wrapper {
 			overflow: hidden;
 		}
@@ -94,11 +68,37 @@
 		}
 	}
 
-	.card__content & {
-			margin-inline: -16px;
+	a.list__item {
+		user-select: none;
+		text-decoration: none;
+		color: inherit;
 
-			&:last-child {
-				margin-bottom: -8px;
+		&:hover,
+		&--active {
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: var(--list);
+				opacity: var(--hover-opacity);
 			}
+		}
+
+		&:active {
+			&:before {
+				opacity: var(--active-opacity);
+			}
+		}
+	}
+
+	.card__content & {
+		margin-inline: -16px;
+
+		&:last-child {
+			margin-bottom: -8px;
+		}
 	}
 }
