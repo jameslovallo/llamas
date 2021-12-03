@@ -26,6 +26,17 @@ export default function Code({ blok }) {
 			`[data-blok-uid*='${blok._uid}'] script[src]`
 		)
 
+		function runCustomJS() {
+			const customJS = document.querySelector(
+				`[data-blok-uid*='${blok._uid}'] script[type='module']`
+			)
+			console.log(customJS)
+			const customJSClone = document.createElement('script')
+			customJSClone.type = 'module'
+			customJSClone.innerHTML = customJS.innerHTML
+			document.body.appendChild(customJSClone)
+		}
+
 		if (jsResources.length > 0) {
 			let jsResourcesLoaded = 0
 			jsResources.forEach((script) => {
@@ -34,10 +45,10 @@ export default function Code({ blok }) {
 				document.body.appendChild(clone)
 				clone.addEventListener('load', () => {
 					jsResourcesLoaded++
-					if (jsResources.length === jsResourcesLoaded) eval(blok.javascript)
+					if (jsResources.length === jsResourcesLoaded) runCustomJS()
 				})
 			})
-		}
+		} else runCustomJS()
 	}, [])
 
 	const template = `
