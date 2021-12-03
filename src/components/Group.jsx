@@ -13,7 +13,7 @@ export default function Group({ blok }) {
 			{blok.content.length > 0 && (
 				<div className="group" style={styles} {...sbEditable(blok)}>
 					{blok.content.map((blok) => (
-						<Children blok={blok} />
+						<Children blok={blok} key={blok._uid} />
 					))}
 				</div>
 			)}

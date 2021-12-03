@@ -25,7 +25,7 @@ export default function List({ blok }) {
 				const El = href ? 'a' : 'div'
 
 				return (
-					<li {...sbEditable(item)}>
+					<li {...sbEditable(item)} key={item._uid}>
 						<El className={itemClasses()} {...(href ? { href: href } : {})}>
 							{item.icon && !item.avatar.filename && (
 								<span

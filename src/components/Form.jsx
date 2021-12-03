@@ -21,8 +21,8 @@ export default function Form({ blok }) {
 			style={styles}
 			{...sbEditable(blok)}
 		>
-			{blok.content.map((item) => {
-				return <FormField blok={item} />
+			{blok.content.map((blok) => {
+				return <FormField blok={blok} />
 			})}
 			<div data-netlify-recaptcha="true" className="form__recaptcha" />
 			<div className="form__actions">

@@ -19,28 +19,30 @@ export default function Tabs({ blok }) {
 	return (
 		<div className={classes()} style={styles} {...sbEditable(blok)}>
 			<div role="tablist" aria-label="Entertainment">
-				{blok.content.map((content, n) => (
+				{blok.content.map((blok, n) => (
 					<button
 						role="tab"
 						aria-selected={n === 0}
-						aria-controls={'b-tab-' + content._uid}
-						id={'b-' + content._uid}
-						{...sbEditable(content)}
+						aria-controls={'b-tab-' + blok._uid}
+						id={'b-' + blok._uid}
+						{...sbEditable(blok)}
+						key={blok._uid}
 					>
-						{content.label}
+						{blok.label}
 					</button>
 				))}
 			</div>
-			{blok.content.map((content, n) => (
+			{blok.content.map((blok, n) => (
 				<div
 					tabIndex="0"
 					role="tabpanel"
-					id={'b-tab-' + content._uid}
-					aria-labelledby={'b-' + content._uid}
+					id={'b-tab-' + blok._uid}
+					aria-labelledby={'b-' + blok._uid}
 					hidden={n !== 0 ? 'hidden' : ''}
+					key={blok._uid}
 				>
-					{content.content.map((content) => (
-						<Children blok={content} />
+					{blok.content.map((blok) => (
+						<Children blok={blok} key={blok._uid} />
 					))}
 				</div>
 			))}

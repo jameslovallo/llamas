@@ -1,4 +1,5 @@
 import { sbEditable } from '@storyblok/storyblok-editable'
+import { useEffect } from 'react'
 import responsive from './utils/responsive'
 
 export default function Code({ blok }) {
@@ -18,6 +19,26 @@ export default function Code({ blok }) {
 			return `<link rel="stylesheet" href="${href}"/>`
 		} else return ''
 	}
+
+	// for Next.js preview
+	useEffect(() => {
+		const jsResources = document.querySelectorAll(
+			`[data-blok-uid*='${blok._uid}'] script[src]`
+		)
+
+		if (jsResources.length > 0) {
+			let jsResourcesLoaded = 0
+			jsResources.forEach((script) => {
+				let clone = document.createElement('script')
+				clone.src = script.src
+				document.body.appendChild(clone)
+				clone.addEventListener('load', () => {
+					jsResourcesLoaded++
+					if (jsResources.length === jsResourcesLoaded) eval(blok.javascript)
+				})
+			})
+		}
+	}, [])
 
 	const template = `
 		${script(blok.external_js_1)}

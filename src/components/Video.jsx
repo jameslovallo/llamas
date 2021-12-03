@@ -21,8 +21,8 @@ export default function Video({ blok }) {
 					poster={blok.video_poster.filename + '/m/'}
 					preload="auto"
 				>
-					{blok.video_files.map((src) => (
-						<source src={src.filename} />
+					{blok.video_files.map((src, index) => (
+						<source src={src.filename} key={index} />
 					))}
 				</video>
 			</div>

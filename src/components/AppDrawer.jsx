@@ -6,7 +6,7 @@ export default function AppDrawer({ global }) {
 			<div className="app-drawer__scrim" style={{ display: 'none' }}></div>
 			<aside className="app-drawer" style={{ display: 'none' }}>
 				{global.drawer.map((blok) => (
-					<Component blok={blok} />
+					<Component blok={blok} key={blok._uid} />
 				))}
 			</aside>
 		</>

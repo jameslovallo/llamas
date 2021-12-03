@@ -14,13 +14,11 @@ export default function section({ blok }) {
 			{...sbEditable(blok)}
 		>
 			{blok.style.includes('swoop') && <div className="section__top" />}
-			{blok.content.length > 0 && (
-				<div className="grid">
-					{blok.content.map((content) => (
-						<SectionChildren blok={content} />
-					))}
-				</div>
-			)}
+			<div className="grid">
+				{blok.content.map((blok) => (
+					<SectionChildren blok={blok} key={blok._uid} />
+				))}
+			</div>
 		</div>
 	)
 }

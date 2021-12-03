@@ -24,12 +24,12 @@ export default function AppBar({ global }) {
 			<div className="app-bar__spacer" />
 			<div className="app-bar__desktop">
 				{global.app_bar_desktop.map((blok) => (
-					<Component blok={blok} />
+					<Component blok={blok} key={blok._uid} />
 				))}
 			</div>
 			<div className="app-bar__mobile">
 				{global.app_bar.map((blok) => (
-					<Component blok={blok} />
+					<Component blok={blok} key={blok._uid} />
 				))}
 			</div>
 		</nav>
