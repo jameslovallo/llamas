@@ -30,7 +30,6 @@ export default function Code({ blok }) {
 			const customJS = document.querySelector(
 				`[data-blok-uid*='${blok._uid}'] script[type='module']`
 			)
-			console.log(customJS)
 			const customJSClone = document.createElement('script')
 			customJSClone.type = 'module'
 			customJSClone.innerHTML = customJS.innerHTML
