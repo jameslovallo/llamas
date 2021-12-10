@@ -6,7 +6,7 @@ import AppDrawer from "../components/AppDrawer"
 import Component from "../components/Component"
 import Theme from "../components/Theme"
 
-const key = process.env.TOKEN
+const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
 const cacheBuster = new Date().getMilliseconds()
 const {story} = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
   .then(response => response.json())
@@ -18,11 +18,11 @@ const pageString = JSON.stringify(page)
 const clientScript = (component, module = false) => {
   const c = component.toLowerCase()
   const type = module ? "module" : "application/javascript"
-  if (pageString && pageString.includes(`"component":"${component}"`)) {
-    return (
-      <script src={Astro.resolve(`../js/${c}.js`)} type={type} inline></script>
-    )
-  }
+  // if (pageString && pageString.includes(`"component":"${component}"`)) {
+  //   return (
+  //     <script src={Astro.resolve(`../js/${c}.js`)} type={type} inline></script>
+  //   )
+  // }
 }
 ---
 <html lang="en">
