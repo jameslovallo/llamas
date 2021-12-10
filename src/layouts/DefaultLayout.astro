@@ -61,7 +61,13 @@ const clientScript = (component, module = false) => {
     <!-- Component Scripts -->
     { clientScript("Dialog", true) }
     { clientScript("Form") }
-    { clientScript("Tabs") }
+    { pageString.includes(`"component":"Tabs"`) && 
+      <script
+        src="https://spicy-sections.glitch.me/SpicySections.js"
+        type="module"
+        inline 
+      />
+    }
     { clientScript("Video") }
 
     <!-- Deferred Crap like Fonts -->
