@@ -15,9 +15,19 @@ const global = story.content
 const { page, content } = Astro.props
 const El = typeof content === "object" ? "article" : "main"
 const pageString = JSON.stringify(page)
+
 const clientScript = (component, module = false) => {
   const c = component.toLowerCase()
-  const type = module ? "module" : "application/javascript"
+  const type = module ? "module" : undefined
+  if (c === 'tabs') {
+    return (
+      <script
+        src="https://spicy-sections.glitch.me/SpicySections.js"
+        type="module"
+        inline 
+      />
+    )
+  }
   if (pageString && pageString.includes(`"component":"${component}"`)) {
     return (
       <script src={Astro.resolve(`../js/${c}.js`)} type={type} inline></script>
@@ -61,13 +71,7 @@ const clientScript = (component, module = false) => {
     <!-- Component Scripts -->
     { clientScript("Dialog", true) }
     { clientScript("Form") }
-    { pageString.includes(`"component":"Tabs"`) && 
-      <script
-        src="https://spicy-sections.glitch.me/SpicySections.js"
-        type="module"
-        inline 
-      />
-    }
+    { clientScript("Tabs") }
     { clientScript("Video") }
 
     <!-- Deferred Crap like Fonts -->
