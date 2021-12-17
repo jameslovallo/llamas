@@ -30,7 +30,7 @@ let scripts = [
   },
   {
     c: 'Tabs',
-    src: 'https://spicy-sections.glitch.me/SpicySections.js',
+    src: '/js/tabs.js',
     type: "module",
     use: false
   },
@@ -78,6 +78,13 @@ if (bodyString) {
 
     <!-- Load Images -->
     <script src="/js/images.js" inline></script>
+
+    <!-- Tua BSL -->
+    <script
+      type="module"
+      src="https://unpkg.com/tua-body-scroll-lock@1.2.1/dist/tua-bsl.umd.js"
+      inline>
+    </script>
 
     <!-- Activate the Drawer -->
     <script type="module" src="/js/drawer.js" inline></script>

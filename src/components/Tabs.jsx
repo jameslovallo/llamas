@@ -4,9 +4,9 @@ import responsive from './utils/responsive'
 
 export default function Tabs({ blok }) {
 	const classes = () => {
-		let classes = ['tabs']
-		blok.style === 'elevated' && classes.push('tabs--elevated')
-		blok.style === 'outlined' && classes.push('tabs--outlined')
+		let classes = ['spicy']
+		blok.style === 'elevated' && classes.push('spicy--elevated')
+		blok.style === 'outlined' && classes.push('spicy--outlined')
 		return classes.join(' ').trim()
 	}
 
@@ -14,38 +14,27 @@ export default function Tabs({ blok }) {
 		...responsive(blok.responsive),
 		alignSelf: blok.vertical_alignment,
 		'--tabs': blok.color ? `var(--${blok.color})` : undefined,
+		'--const-mq-affordances': `[(max-width: 480px)] ${blok.mobile_format} |
+			[(min-width: 480px) and (max-width: 1024px)] ${blok.tablet_format} |
+    	[(min-width: 1024px)] ${blok.desktop_format}`,
 	}
 
+	const H = 'h' + blok.heading_level
+
 	return (
-		<div className={classes()} style={styles} {...sbEditable(blok)}>
-			<div role="tablist" aria-label="Entertainment">
-				{blok.content.map((blok, n) => (
-					<button
-						role="tab"
-						aria-selected={n === 0}
-						aria-controls={'b-tab-' + blok._uid}
-						id={'b-' + blok._uid}
-						{...sbEditable(blok)}
-						key={blok._uid}
-					>
+		<spicy-sections class={classes()} style={styles} {...sbEditable(blok)}>
+			{blok.content.map((blok) => (
+				<>
+					<H className="spicy__heading" key={blok._uid}>
 						{blok.label}
-					</button>
-				))}
-			</div>
-			{blok.content.map((blok, n) => (
-				<div
-					tabIndex="0"
-					role="tabpanel"
-					id={'b-tab-' + blok._uid}
-					aria-labelledby={'b-' + blok._uid}
-					hidden={n !== 0 ? 'hidden' : ''}
-					key={blok._uid}
-				>
-					{blok.content.map((blok) => (
-						<Children blok={blok} key={blok._uid} />
-					))}
-				</div>
+					</H>
+					<>
+						{blok.content.map((blok) => (
+							<Children blok={blok} key={blok._uid} />
+						))}
+					</>
+				</>
 			))}
-		</div>
+		</spicy-sections>
 	)
 }
