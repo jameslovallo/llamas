@@ -5,49 +5,20 @@ import AppBar from "../components/AppBar"
 import AppDrawer from "../components/AppDrawer"
 import Component from "../components/Component"
 import Theme from "../components/Theme"
+import onClient from "../components/utils/onClient"
 
-const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
+// Fetch global content from Storyblok
+const key = import.meta.env.PUBLIC_TOKEN
 const cacheBuster = new Date().getMilliseconds()
 const {story} = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
   .then(response => response.json())
 const global = story.content
 
+// Handle page-level content
 const { page, content } = Astro.props
 const El = typeof content === "object" ? "article" : "main"
-
 const bodyString = JSON.stringify(page?.content?.body)
-let scripts = [
-  {
-    c: 'Dialog',
-    src: '/js/dialog.js',
-    type: "module",
-    use: false
-  },
-  {
-    c: 'Form',
-    src: '/js/form.js',
-    use: false
-  },
-  {
-    c: 'Tabs',
-    src: '/js/tabs.js',
-    type: "module",
-    use: false
-  },
-  {
-    c: 'Video',
-    src: '/js/video.js',
-    use: false
-  }
-]
-
-if (bodyString) {
-  scripts.forEach(s => {
-    if (bodyString.includes(`"component":"${s.c}"`)) s.use = true
-  })
-
-  scripts = scripts.filter(s => {return s.use === true})
-}
+const scripts = onClient(bodyString)
 ---
 <html lang="en">
 
@@ -77,22 +48,12 @@ if (bodyString) {
     <!-- Load Images -->
     <script src="/js/images.js" inline></script>
 
-    <!-- Tua BSL -->
-    <script
-      type="module"
-      src="https://unpkg.com/tua-body-scroll-lock@1.2.1/dist/tua-bsl.umd.js"
-      inline>
-    </script>
-
-    <!-- Activate the Drawer -->
-    <script type="module" src="/js/drawer.js" inline></script>
-
     <!-- Deferred Crap like Fonts -->
     { global.custom_html }
 
     <!-- Component Scripts -->
     {scripts.map(s => (
-        <script src={s.src} inline type={s.type}></script>
+        <script src={s.src} type="module" inline></script>
     ))}
 
     <!-- Settings Redirect -->

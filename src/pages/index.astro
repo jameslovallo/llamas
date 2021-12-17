@@ -2,7 +2,7 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro"
 import Component from "../components/Component.jsx"
 
-const key = "BZX4R4Dr8Y6rnegRb9YaPwtt"
+const key = import.meta.env.PUBLIC_TOKEN
 const cacheBuster = new Date().getMilliseconds()
 const { story } = await fetch(`https://api.storyblok.com/v2/cdn/stories/home?token=${key}&cv=${cacheBuster}`)
 	.then(response => response.json())
