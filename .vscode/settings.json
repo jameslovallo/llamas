@@ -5,7 +5,6 @@
 		".vscode": true,
 		"node_modules": true,
 		"README.md": true,
-		"sandbox.config.json": true,
-		"tsconfig.json": true
+		"sandbox.config.json": true
 	}
 }

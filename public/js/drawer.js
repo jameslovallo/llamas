@@ -1,7 +1,3 @@
-import { lock, unlock } from 'tua-body-scroll-lock'
-window.tuaLock = lock
-window.tuaUnlock = unlock
-
 const drawerButton = document.querySelector('.app-bar > .button:first-child')
 const drawer = document.querySelector('.app-drawer')
 const drawerScrim = document.querySelector('.app-drawer__scrim')
@@ -13,7 +9,7 @@ drawerButton.addEventListener('click', () => {
 		drawer.classList.add('app-drawer--open')
 		drawerScrim.classList.add('app-drawer__scrim--open')
 	})
-	tuaLock()
+	bodyScrollLock.lock()
 })
 
 drawerScrim.addEventListener('click', () => {
@@ -23,7 +19,7 @@ drawerScrim.addEventListener('click', () => {
 		drawer.style.display = 'none'
 		drawerScrim.style.display = 'none'
 	}, 500)
-	tuaUnlock()
+	bodyScrollLock.unlock()
 })
 
 drawer
