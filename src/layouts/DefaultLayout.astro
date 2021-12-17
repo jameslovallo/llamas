@@ -53,9 +53,7 @@ if (bodyString) {
 
   <head>
     <BaseHead global={ global } page={ page } content={content}/>
-    <style lang="scss" global inline>
-      @import "../css/base.scss";
-    </style>
+    <link rel="stylesheet" href={Astro.resolve('../css/base.scss')} inline>
     <Theme global={ global }/>
   </head>
 
