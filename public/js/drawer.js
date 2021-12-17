@@ -1,4 +1,7 @@
-import { lock, unlock } from 'tua-body-scroll-lock'
+import {
+	lock,
+	unlock,
+} from 'https://cdn.skypack.dev/tua-body-scroll-lock@1.2.1'
 window.tuaLock = lock
 window.tuaUnlock = unlock
 

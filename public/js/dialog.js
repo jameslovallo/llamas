@@ -1,6 +1,6 @@
-import MicroModal from 'micromodal'
+import micromodal from "https://cdn.skypack.dev/micromodal@0.4.10";
 
-MicroModal.init({
+micromodal.init({
 	disableFocus: true,
 	disableScroll: false,
 	onShow: function (modal, element, event) {

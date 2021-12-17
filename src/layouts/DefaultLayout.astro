@@ -14,15 +14,39 @@ const global = story.content
 
 const { page, content } = Astro.props
 const El = typeof content === "object" ? "article" : "main"
-const pageString = JSON.stringify(page)
-const clientScript = (component, module = false) => {
-  const c = component.toLowerCase()
-  const type = module ? "module" : "application/javascript"
-  // if (pageString && pageString.includes(`"component":"${component}"`)) {
-  //   return (
-  //     <script src={Astro.resolve(`../js/${c}.js`)} type={type} inline></script>
-  //   )
-  // }
+
+const bodyString = JSON.stringify(page?.content?.body)
+let scripts = [
+  {
+    c: 'Dialog',
+    src: '/js/dialog.js',
+    type: "module",
+    use: false
+  },
+  {
+    c: 'Form',
+    src: '/js/form.js',
+    use: false
+  },
+  {
+    c: 'Tabs',
+    src: 'https://spicy-sections.glitch.me/SpicySections.js',
+    type: "module",
+    use: false
+  },
+  {
+    c: 'Video',
+    src: '/js/video.js',
+    use: false
+  }
+]
+
+if (bodyString) {
+  scripts.forEach(s => {
+    if (bodyString.includes(`"component":"${s.c}"`)) s.use = true
+  })
+
+  scripts = scripts.filter(s => {return s.use === true})
 }
 ---
 <html lang="en">
@@ -53,19 +77,18 @@ const clientScript = (component, module = false) => {
     ))}
 
     <!-- Load Images -->
-    <script src={Astro.resolve("../js/images.js")} inline></script>
+    <script src="/js/images.js" inline></script>
 
     <!-- Activate the Drawer -->
-    <script type="module" src={Astro.resolve("../js/drawer.js")} inline></script>
-
-    <!-- Component Scripts -->
-    { clientScript("Dialog", true) }
-    { clientScript("Form") }
-    { clientScript("Tabs") }
-    { clientScript("Video") }
+    <script type="module" src="/js/drawer.js" inline></script>
 
     <!-- Deferred Crap like Fonts -->
     { global.custom_html }
+
+    <!-- Component Scripts -->
+    {scripts.map(s => (
+        <script src={s.src} inline type={s.type}></script>
+    ))}
 
     <!-- Settings Redirect -->
     <script>
