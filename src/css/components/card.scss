@@ -64,7 +64,7 @@
 				margin-bottom: 8px;
 			}
 
-			&:first-of-type:before {
+			body:not(.preview) &:first-of-type:before {
 				content: '';
 				position: absolute;
 				top: 0;

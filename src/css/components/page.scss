@@ -1,4 +1,5 @@
-body {
+body:not(.preview),
+#__next {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;

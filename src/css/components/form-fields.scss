@@ -180,12 +180,16 @@ form.form {
 }
 
 .form__recaptcha:empty {
-	padding: 1em;
+	padding: 0 1em;
 	border: 1px solid currentColor;
 	border-radius: 4px;
 	width: 300px;
+	height: 74px;
+	display: flex;
+	align-items: center;
+	background: #f9f9f9;
 	&:before {
-		content: "🤖 I'm not a robot";
+		content: "☑️ I'm not a robot";
 	}
 }
 

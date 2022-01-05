@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import SectionChildren from './SectionChildren'
 import responsive from './utils/responsive'
 
@@ -8,7 +9,7 @@ export default function Dialog({ blok }) {
 	}
 
 	return (
-		<div className="dialog" style={styles}>
+		<div className="dialog" style={styles} {...sbEditable(blok)}>
 			<div
 				className="modal__trigger"
 				data-micromodal-trigger={`modal-${blok._uid}`}
@@ -31,13 +32,13 @@ export default function Dialog({ blok }) {
 							</h2>
 						</header>
 						<div className="modal__dialog__content">
-							{blok.content.map((content) => (
-								<SectionChildren blok={content} />
+							{blok.content.map((blok) => (
+								<SectionChildren blok={blok} key={blok._uid} />
 							))}
 						</div>
 						<footer className="modal__dialog__footer">
-							{blok.secondary_action.map((content) => (
-								<SectionChildren blok={content} />
+							{blok.secondary_action.map((blok) => (
+								<SectionChildren blok={blok} key={blok._uid} />
 							))}
 							<button
 								className="button button--text"

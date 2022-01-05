@@ -41,7 +41,10 @@
 			"type": "shell",
 			"command": "nvm use 16.11.1",
 			"problemMatcher": [],
-			"label": "Set Node Version"
+			"label": "Set Node Version",
+			"runOptions": {
+				"runOn": "folderOpen"
+			}
 		}
 	]
 }

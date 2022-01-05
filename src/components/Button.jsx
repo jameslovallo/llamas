@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import link from './utils/link'
 
 export default function Button({ blok, submit }) {
@@ -23,6 +24,7 @@ export default function Button({ blok, submit }) {
 			style={styles}
 			{...(href ? { href: href } : {})}
 			{...(submit ? { type: 'submit' } : {})}
+			{...sbEditable(blok)}
 		>
 			<span className="button__background"></span>
 			<span className="button__content">

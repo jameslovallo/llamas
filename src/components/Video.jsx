@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import responsive from './utils/responsive'
 
 export default function Video({ blok }) {
@@ -9,6 +10,7 @@ export default function Video({ blok }) {
 					...responsive(blok.responsive),
 					alignSelf: blok.vertical_alignment,
 				}}
+				{...sbEditable(blok)}
 			>
 				<video
 					autoPlay={blok.autoplay}
@@ -19,8 +21,8 @@ export default function Video({ blok }) {
 					poster={blok.video_poster.filename + '/m/'}
 					preload="auto"
 				>
-					{blok.video_files.map((src) => (
-						<source src={src.filename} />
+					{blok.video_files.map((src, index) => (
+						<source src={src.filename} key={index} />
 					))}
 				</video>
 			</div>
@@ -36,6 +38,7 @@ export default function Video({ blok }) {
 					alignSelf: blok.vertical_alignment,
 					backgroundImage: `url(https://img.youtube.com/vi/${blok.youtube_video_id}/${posterSize}.jpg)`,
 				}}
+				{...sbEditable(blok)}
 			>
 				<div className="video--yt__content">
 					<button className="video--yt__play-button" aria-label="Play Video">
@@ -51,9 +54,9 @@ export default function Video({ blok }) {
 				</div>
 				<iframe
 					title="YouTube video player"
-					frameborder="0"
+					frameBorder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
+					allowFullScreen
 				></iframe>
 			</div>
 		)

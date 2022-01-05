@@ -1,3 +1,4 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
 import responsive from './utils/responsive'
 
 export default function FormField({ blok }) {
@@ -64,7 +65,11 @@ export default function FormField({ blok }) {
 		}
 	}
 	return (
-		<div className="form__field" style={responsive(blok.responsive)}>
+		<div
+			className="form__field"
+			style={responsive(blok.responsive)}
+			{...sbEditable(blok)}
+		>
 			{Field()}
 		</div>
 	)

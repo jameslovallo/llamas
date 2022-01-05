@@ -1,3 +1,5 @@
+import { sbEditable } from '@storyblok/storyblok-editable'
+
 export default function Spacer({ blok }) {
 	return (
 		<div
@@ -5,6 +7,7 @@ export default function Spacer({ blok }) {
 			style={{
 				height: blok.height + 'px',
 			}}
+			{...sbEditable(blok)}
 		/>
 	)
 }

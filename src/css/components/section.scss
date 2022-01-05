@@ -41,13 +41,13 @@
 	}
 
 	&--swoop {
-		--swoop-curve: 48px;
+		--swoop-curve: 40px;
 		margin-top: -24px;
 		margin-bottom: calc(var(--swoop-curve) - 24px);
 		border-bottom-right-radius: var(--swoop-curve);
 
 		@media (min-width: 640px) {
-			--swoop-curve: 96px;
+			--swoop-curve: 80px;
 		}
 
 		.section__top {

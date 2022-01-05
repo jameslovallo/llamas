@@ -3,7 +3,7 @@ import DefaultLayout from "../layouts/DefaultLayout.astro"
 import Component from "../components/Component.jsx"
 
 export async function getStaticPaths() {
-  const key = process.env.TOKEN
+  const key = import.meta.env.PUBLIC_TOKEN
   const cacheBuster = new Date().getMilliseconds()
   const dev = process.env.npm_lifecycle_script !== "astro dev"
   const home = dev ? "home," : ""

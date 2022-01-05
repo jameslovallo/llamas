@@ -5,33 +5,26 @@ import AppBar from "../components/AppBar"
 import AppDrawer from "../components/AppDrawer"
 import Component from "../components/Component"
 import Theme from "../components/Theme"
+import onClient from "../components/utils/onClient"
+import "../css/base.scss"
 
-const key = process.env.TOKEN
+// Fetch global content from Storyblok
+const key = import.meta.env.PUBLIC_TOKEN
 const cacheBuster = new Date().getMilliseconds()
 const {story} = await fetch(`https://api.storyblok.com/v2/cdn/stories/settings?token=${key}&version=draft&cv=${cacheBuster}`)
   .then(response => response.json())
 const global = story.content
 
+// Handle page-level content
 const { page, content } = Astro.props
 const El = typeof content === "object" ? "article" : "main"
-const pageString = JSON.stringify(page)
-const clientScript = (component, module = false) => {
-  const c = component.toLowerCase()
-  const type = module ? "module" : "application/javascript"
-  if (pageString && pageString.includes(`"component":"${component}"`)) {
-    return (
-      <script src={Astro.resolve(`../js/${c}.js`)} type={type} inline></script>
-    )
-  }
-}
+const bodyString = JSON.stringify(page?.content?.body)
+const scripts = onClient(bodyString)
 ---
 <html lang="en">
 
   <head>
     <BaseHead global={ global } page={ page } content={content}/>
-    <style lang="scss" global>
-      @import "../css/base.scss";
-    </style>
     <Theme global={ global }/>
   </head>
 
@@ -53,19 +46,15 @@ const clientScript = (component, module = false) => {
     ))}
 
     <!-- Load Images -->
-    <script src={Astro.resolve("../js/images.js")} inline></script>
-
-    <!-- Activate the Drawer -->
-    <script type="module" src={Astro.resolve("../js/drawer.js")} inline></script>
-
-    <!-- Component Scripts -->
-    { clientScript("Dialog", true) }
-    { clientScript("Form") }
-    { clientScript("Tabs") }
-    { clientScript("Video") }
+    <script src="/js/images.js" inline></script>
 
     <!-- Deferred Crap like Fonts -->
     { global.custom_html }
+
+    <!-- Component Scripts -->
+    {scripts.map(s => (
+        <script src={s.src} type="module" inline></script>
+    ))}
 
     <!-- Settings Redirect -->
     <script>
@@ -75,7 +64,12 @@ const clientScript = (component, module = false) => {
     </script>
 
     <!-- Instant.page -->
-    <script src="https://instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw" inline></script>
+    <script
+      src="https://instant.page/5.1.0"
+      type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"
+      inline>
+    </script>
 
   </body>
 
