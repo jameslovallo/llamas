@@ -1,7 +1,6 @@
 # example netlify.toml
 [build]
   command = "astro build"
-  # functions = "netlify/functions"
   publish = "dist"
   ignore = "git log -1 --pretty=%B | grep dependabot"
 
@@ -13,3 +12,12 @@
   package = "@netlify/plugin-sitemap"
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
+
+[functions]
+  directory = "src/functions"
+
+[[redirects]]
+  from = "/proxy/*"
+  to = "/.netlify/functions/proxy/:splat"
+  status = 200
+  force = true
