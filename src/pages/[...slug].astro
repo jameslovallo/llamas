@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
   return stories.map((story) => {
     return {
-      params: { slug: story.slug },
+      params: { slug: story.full_slug },
       props: { story }
     }
   })
