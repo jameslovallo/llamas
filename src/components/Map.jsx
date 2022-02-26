@@ -2,13 +2,6 @@ import { sbEditable } from '@storyblok/storyblok-editable'
 import responsive from './utils/responsive'
 
 export default function Map({ blok }) {
-	const styles = {
-		...responsive(blok.responsive),
-		alignSelf: blok.vertical_alignment,
-		'--list': blok.color ? `var(--${blok.color})` : undefined,
-		'--on-list': blok.color ? `var(--on-${blok.color})` : undefined,
-	}
-
 	const width = blok.base_width
 	let height = Math.round((blok.base_width * 9) / 16)
 
@@ -27,16 +20,19 @@ export default function Map({ blok }) {
 	const zoom = '&zoom=' + blok.zoom_level
 	const key = '&key=AIzaSyCxqAHXuQxKJh84FPydDkFcXyA2x7wIZVA'
 
+	const styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+		display: 'block',
+		position: 'relative',
+		paddingTop: (height / width) * 100 + '%',
+	}
+
 	return (
 		<a
 			className="map"
 			href={'https://google.com/maps/search/' + locations}
-			style={{
-				...styles,
-				display: 'block',
-				position: 'relative',
-				paddingTop: (height / width) * 100 + '%',
-			}}
+			style={{ ...styles }}
 			{...sbEditable(blok)}
 		>
 			<img
