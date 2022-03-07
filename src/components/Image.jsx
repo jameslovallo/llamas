@@ -53,7 +53,7 @@ export default function Image({ blok }) {
 			</div>
 		)
 	} else {
-		styles.paddingTop = (vert / hor) * 100 + '%'
+		if (vert && hor) styles.paddingTop = (vert / hor) * 100 + '%'
 		const fit = blok.fit === 'cover' ? 'cover' : 'contain'
 
 		return (
