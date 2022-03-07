@@ -1,6 +1,14 @@
 import { sbEditable } from '@storyblok/storyblok-editable'
+import responsive from './utils/responsive'
 
 export default function Map({ blok }) {
+	const styles = {
+		...responsive(blok.responsive),
+		alignSelf: blok.vertical_alignment,
+		'--list': blok.color ? `var(--${blok.color})` : undefined,
+		'--on-list': blok.color ? `var(--on-${blok.color})` : undefined,
+	}
+
 	const regex = new RegExp('[0-9]+(/|x)[0-9]+')
 	const width = blok.base_width
 	let height = Math.round((blok.base_width * 9) / 16)
