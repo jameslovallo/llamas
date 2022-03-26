@@ -18,9 +18,11 @@ export default function AppBar({ global }) {
 					style: 'icon',
 				}}
 			/>
-			<a className="app-bar__title" href="/">
-				{global.app_bar_title}
-			</a>
+			<a
+				className="app-bar__title"
+				href="/"
+				dangerouslySetInnerHTML={{ __html: global.app_bar_title }}
+			/>
 			<div className="app-bar__spacer" />
 			<div className="app-bar__desktop">
 				{global.app_bar_desktop.map((blok) => (
