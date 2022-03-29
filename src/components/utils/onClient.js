@@ -16,6 +16,11 @@ export default function onClient(bodyString) {
 			use: false,
 		},
 		{
+			c: 'Dropdown',
+			src: '/js/dropdown.js',
+			use: false,
+		},
+		{
 			c: 'Form',
 			src: '/js/form.js',
 			use: false,

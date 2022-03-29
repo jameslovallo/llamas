@@ -15,8 +15,8 @@ export default function Button({ blok, submit }) {
 		'--on-button': blok.color ? `var(--on-${blok.color})` : undefined,
 	}
 
-	const El = submit ? 'button' : 'a'
 	const href = blok.link ? link(blok.link) : undefined
+	const El = submit || href === undefined ? 'button' : 'a'
 
 	return (
 		<El

@@ -2,6 +2,7 @@ import Button from './Button'
 import Card from './Card'
 import Code from './Code'
 import Dialog from './Dialog'
+import Dropdown from './Dropdown'
 import Form from './Form'
 import Group from './Group'
 import Image from './Image'
@@ -18,6 +19,7 @@ const components = {
 	Card: Card,
 	Code: Code,
 	Dialog: Dialog,
+	Dropdown: Dropdown,
 	Form: Form,
 	Group: Group,
 	Image: Image,
