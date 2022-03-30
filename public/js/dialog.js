@@ -5,6 +5,8 @@ micromodal.init({
 	disableScroll: false,
 	onShow: function (modal, element, event) {
 		bodyScrollLock.lock(modal.querySelector('.modal__dialog__content')) //declared in drawer.js
+		const imgs = modal.querySelectorAll('.image img')
+		imgs.forEach(img => initImage(img))
 	},
 	onClose: function (modal, element, event) {
 		event.preventDefault()
